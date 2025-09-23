@@ -69,7 +69,7 @@
                     <div class="mil-right mil-jce">
                         <div class="mil-tp-phone mil-aic mil-mr-60 mil-sm-mr-15">
                             <i class="far fa-mobile mil-icon mil-sm mil-bg-a-2 mil-m-4 mil-mr-15 mil-sm-hidden" style="padding-top: .2rem"></i>
-                            <a href="tel:+984663305" class="mil-fw-600" data-no-swup>+51 984663305</a>
+                            <a href="tel:+51984663305" class="mil-fw-600" data-no-swup>+51 984663305</a>
                         </div>
                         <a href="#" class="mil-btn mil-lg mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-icon-btn mil-hover-scale mil-md-hidden"><span>Contratar</span><i class="far fa-magic mil-bg-m-1 mil-a-1"></i></a>
                         <div class="mil-menu-btn">
@@ -92,7 +92,10 @@
                         <i class="far fa-user mil-a-2"></i>
                       </div>
                       <div class="mil-input-frame mil-mb-30">
-                        <input type="tel" id="user-phone-2" name="user-tel" class="mil-phone-input mil-br-md mil-bg-m-3" placeholder="+57 (___) ___-____" autocomplete="tel">
+                        <input type="tel" id="user-phone-2"
+                        class="mil-phone-input mil-br-md mil-bg-m-3"
+                        data-native-mask="1"
+                        placeholder="+51 9XX XXX XXX" autocomplete="tel">
                         <i class="far fa-mobile mil-a-2"></i>
                       </div>
                       <button class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale" type="submit">
@@ -116,7 +119,7 @@
           </div>
           
           <!-- Popup: Descuento / Bienvenida -->
-          <div class="mil-discount-popup">
+          <div class="mil-discount-popup" id="mil-discount-popup">
             <div class="mil-popup-window">
               <div class="mil-envelope-top">
                 <i class="fal fa-times mil-close-popup"></i>
@@ -144,12 +147,13 @@
                     <div class="mil-aic">
                       <div class="mil-dscnt-star mil-invert">
                         <img src="img/ui/star.svg" alt="star">
-                        <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span>50</span>%</div>
+                        <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span>50</span>S/</div>
                       </div>
                       <div>
                         <p class="mil-m-1 mil-mb-15 mil-opacity-7">¡Aprovecha!</p>
-                        <h3 class="mil-fs-32 mil-mb-20">Descuento en tu primer servicio <span class="mil-m-4">*</span></h3>
-                        <p class="mil-m-1 mil-opacity-7">Promoción por tiempo limitado</p>
+<!--                         <h3 class="mil-fs-32 mil-mb-20">Descuento en tu primer servicio <span class="mil-m-4">*</span></h3>
+ -->                        <h3 class="mil-fs-32 mil-mb-20"> Credito GRÁTIS para expertos, por registro! <span class="mil-m-4">*</span></h3>
+                         <p class="mil-m-1 mil-opacity-7">Promoción por tiempo limitado</p>
                       </div>
                     </div>
                   </div>
@@ -162,39 +166,120 @@
           
               <div class="mil-envelope-body mil-tac mil-br-lg">
                 <h4 class="mil-fs-36 mil-mb-60">🎉 ¡Bienvenido a Don Reparador!</h4>
-                <form>
+                <form id="signup-form" enctype="multipart/form-data">
                   <div class="row">
+                    <div class="col-12 mil-mb-10">
+                      <label class="mil-fs-16 mil-fw-600 mil-m-1">Tipo de usuario</label>
+                      <div class="mil-aic" role="radiogroup" aria-label="Tipo de usuario">
+                        <label class="mil-custom-radio mil-mr-30">
+                          <input type="radio" name="rolw" value="client" required>
+                          <span class="mil-radio-checkmark"></span> Cliente
+                        </label>
+                        <label class="mil-custom-radio">
+                          <input type="radio" name="rolw" value="provider" required>
+                          <span class="mil-radio-checkmark"></span> Proveedor
+                        </label>
+                      </div>
+                    </div>
                     <div class="col-6 mil-mb-15">
                       <div class="mil-input-frame">
-                        <input type="text" id="user-name-3" name="user-name" placeholder="Nombre" class="mil-br-md mil-bg-m-3" autocomplete="name">
+                        <input type="text" id="sg-name" name="name" placeholder="Nombre y apellidos" class="mil-br-md mil-bg-m-3" autocomplete="name" required>
                         <i class="far fa-user mil-a-2"></i>
                       </div>
                     </div>
+                
                     <div class="col-6 mil-mb-15">
                       <div class="mil-input-frame">
-                        <input type="email" id="user-email-3" name="user-email" placeholder="Correo" class="mil-br-md mil-bg-m-3" autocomplete="email">
+                        <input type="email" id="sg-email" name="email" placeholder="Correo" class="mil-br-md mil-bg-m-3" autocomplete="email" required>
                         <i class="far fa-at mil-a-2"></i>
                       </div>
                     </div>
-                    <div class="col-md-12 mil-mb-15">
+                
+                    <div class="col-6 mil-mb-15">
                       <div class="mil-input-frame">
-                        <input type="tel" id="user-phone-3" name="user-tel" class="mil-phone-input mil-br-md mil-bg-m-3" placeholder="+57 (___) ___-____" autocomplete="tel">
+                        <input type="tel" id="sg-phone"
+                        class="mil-phone-input mil-br-md mil-bg-m-3"
+                        data-native-mask="1"
+                        placeholder="+51 9XX XXX XXX" autocomplete="tel" required>
                         <i class="far fa-mobile mil-a-2"></i>
                       </div>
                     </div>
+                
+                    <div class="col-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="text" id="sg-dni" name="dni" placeholder="DNI (8 dígitos)" class="mil-br-md mil-bg-m-3" inputmode="numeric" pattern="[0-9]{8}" title="8 dígitos" required>
+                        <i class="far fa-id-card mil-a-2"></i>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="col-12 mil-mb-20">
+                      <div class="mil-input-frame">
+                        <input type="file" id="sg-avatar" name="avatar" accept="image/*" class="mil-br-md mil-bg-m-3" required>
+                        <i class="far fa-image mil-a-2"></i>
+                      </div>
+                      <small class="mil-opacity-7">Formatos: JPG/PNG. Máx. 5MB.</small>
+                    </div>
+                
+                    <div class="col-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="password" id="sg-pass" name="password" placeholder="Contraseña (mín. 8)" minlength="8" class="mil-br-md mil-bg-m-3" required>
+                        <i class="far fa-lock mil-a-2"></i>
+                      </div>
+                    </div>
+                
+                    <div class="col-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="password" id="sg-pass2" name="passwordConfirm" placeholder="Repite la contraseña" minlength="8" class="mil-br-md mil-bg-m-3" required>
+                        <i class="far fa-lock mil-a-2"></i>
+                      </div>
+                    </div>
+                
                     <div class="col-lg-12 mil-aic mil-mt-15">
                       <p class="mil-fs-14 mil-m-2 mil-tal">
                         Al enviar aceptas el tratamiento de tus datos personales según nuestros Términos y Política de Privacidad.
                       </p>
-                      <button class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale mil-ml-60 mil-sm-ml-30" type="submit">
-                        Obtener descuento<i class="far fa-arrow-right mil-bg-m-1 mil-a-1"></i>
+                      <button id="sg-submit" class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale mil-ml-60 mil-sm-ml-30" type="submit">
+                        Crear cuenta<i class="far fa-arrow-right mil-bg-m-1 mil-a-1"></i>
                       </button>
+                    </div>
+                
+                    <div class="col-12 mil-mt-15">
+                      <div id="sg-status" class="mil-fs-16" style="min-height:24px;"></div>
                     </div>
                   </div>
                 </form>
+                
+                
               </div>
             </div>
           </div>
+          <!-- Popup: Requisitos para registrarte -->
+          <div id="mil-requirements-popup" class="mil-requirements-popup" style="display:none">
+            <div class="mil-popup-window">
+              <div class="mil-envelope-top">
+                <i class="fal fa-times mil-close-popup"></i>
+                <h3 class="mil-fs-28" style="margin:20px">Requisitos para registrarte</h3>
+              </div>
+          
+              <div class="mil-envelope-body mil-br-lg" style="padding:24px">
+                <ul class="mil-check-list mil-fs-18 mil-lh-160">
+                  <li>Documento de identidad vigente</li>
+                  <li>Comprobante de dirección o zona de cobertura</li>
+                  <li>Certificaciones (si aplica)</li>
+                  <li>Experiencia demostrable o portafolio/fotos</li>
+                  <li>Móvil con WhatsApp y ubicación habilitada</li>
+                  <li>Cuenta bancaria para liquidaciones</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+
+
+
+
           
         <!-- static content end -->
 
@@ -249,9 +334,9 @@
                             <a href="https://app.donreparador.com/" class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale">
                               Buscar un experto<i class="far fa-plus mil-bg-m-4 mil-m-1"></i>
                             </a>
-                            <a href="#calculator" class="mil-link mil-m-1 mil-reverse">
+                            <!-- <a href="#calculator" class="mil-link mil-m-1 mil-reverse">
                               Calcula tu servicio<i class="far fa-calculator mil-bg-a-2 mil-m-4" style="padding: .2rem 0 0 .2rem"></i>
-                            </a>
+                            </a> -->
                           </div>
               
                         </div>
@@ -807,9 +892,15 @@
                                 <a href="#mil-discount-popup" class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-mr-30">
                                 Registrarme<i class="far fa-plus mil-bg-m-1 mil-a-1"></i>
                                 </a>
-                                <a href="#" class="mil-link mil-m-4">
-                                Ver requisitos<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i>
+                                <a href="#mil-requirements-popup"
+                                  class="mil-link mil-m-4"
+                                  data-no-swup
+                                  data-popup-target="#mil-requirements-popup">
+                                  Ver requisitos
+                                  <i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i>
                                 </a>
+
+
                             </div>
                             </div>
                         </div>
@@ -860,11 +951,11 @@
                                 <div class="mil-aic">
                                 <div class="mil-dscnt-star mil-invert">
                                     <img src="img/ui/star.svg" alt="star">
-                                    <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span class="mil-counter" data-number="50">50</span>%</div>
+                                    <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span class="mil-counter" data-number="50">50</span>SOLES</div>
                                 </div>
                                 <div>
                                     <p class="mil-m-1 mil-mb-15 mil-opacity-7">Promoción de bienvenida</p>
-                                    <h3 class="mil-fs-32 mil-mb-20">Hasta 50% menos de comisión* en tus primeros trabajos</h3>
+                                    <h3 class="mil-fs-32 mil-mb-20">Descuentos en comisión* en tus primeros trabajos</h3>
                                     <p class="mil-m-1 mil-opacity-7">Cupón por tiempo limitado. Aplica términos.</p>
                                 </div>
                                 </div>
@@ -1030,7 +1121,7 @@
                 </div>
               </div>
               <!-- calculator -->
-              <div id="calculator">
+             <!--  <div id="calculator">
                 <div class="container mil-p-0-f">
                   <div class="mil-section-title mil-mb-f mil-up">
                     <h2 class="mil-fs-36">Calculador</h2>
@@ -1040,7 +1131,6 @@
               
                   <div class="mil-calculator">
                     <form id="calc-form">
-                      <!-- FILA: tipo de limpieza + tipo de propiedad -->
                       <div class="row mil-aic mil-jcb mil-mb-15">
                         <div class="col-12 col-md-3 mil-sm-mb-15">
                           <div class="mil-input-frame mil-custom-select mil-up" id="cleaning-select">
@@ -1099,7 +1189,6 @@
                         </div>
                       </div>
               
-                      <!-- FILA: área + recuento ambientes -->
                       <div class="row mil-aic mil-h-100">
                         <div class="col-12 col-md-6">
                           <div class="mil-calc-panel mil-br-md mil-mb-15 mil-up">
@@ -1145,10 +1234,8 @@
                         </div>
                       </div>
               
-                      <!-- EXTRAS -->
                       <div class="mil-additional-services">
                         <div class="row">
-                          <!-- Los dos primeros están incluidos en el precio base -->
                           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mil-mb-15 mil-up">
                             <label for="cb1" class="mil-service mil-custom-checkbox mil-m-1 mil-fw-600 mil-already-included">
                               <input type="checkbox" id="cb1" value="15" checked disabled>
@@ -1164,7 +1251,6 @@
                             </label>
                           </div>
               
-                          <!-- Extras opcionales (sumables) -->
                           <div class="col-12 col-sm-6 col-md-4 col-lg-3 mil-mb-15 mil-up">
                             <label for="cb3" class="mil-service mil-custom-checkbox mil-m-1 mil-fw-600">
                               <input type="checkbox" id="cb3" class="mil-additional-service" value="25">
@@ -1224,7 +1310,6 @@
                         </div>
                       </div>
               
-                      <!-- TOTAL -->
                       <div class="mil-total-price mil-bg-m-4 mil-br-md mil-up">
                         <div class="row mil-jcb mil-aic">
                           <div class="col-12 col-md-6 mil-mb-30">
@@ -1252,7 +1337,7 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
               
             <!-- calculator end -->
               <!-- Estética opcional -->
@@ -1528,7 +1613,268 @@
           calcAndRender();
         })();
         </script>
-        
+    <script>
+      (function () {
+        const OPEN_BODY_CLASS = 'mil-modal-open';
+        const MODAL_WINDOW_SEL = '.mil-popup-window';
+        const CLOSE_BTN_SEL = '.mil-close-popup';
       
+        function openModal(modal) {
+          if (!modal) return;
+          modal.style.display = 'block';
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add(OPEN_BODY_CLASS);
+        }
+      
+        function closeModal(modal) {
+          if (!modal) return;
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove(OPEN_BODY_CLASS);
+        }
+      
+        // Delegación: abrir por data-popup-target
+        document.addEventListener('click', function (e) {
+          const opener = e.target.closest('[data-popup-target]');
+          if (!opener) return;
+      
+          const sel = opener.getAttribute('data-popup-target');
+          if (!sel) return;
+      
+          const modal = document.querySelector(sel);
+          if (!modal) {
+            console.warn('No se encontró el modal:', sel);
+            return;
+          }
+      
+          e.preventDefault();
+          openModal(modal);
+        });
+      
+        // Delegación: cerrar al pulsar la X
+        document.addEventListener('click', function (e) {
+          if (e.target.closest(CLOSE_BTN_SEL)) {
+            const modal = e.target.closest('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]');
+            // Tip: ajusta el selector de arriba a las clases que uses para tus popups
+            closeModal(modal);
+          }
+        });
+      
+        // Cerrar al click fuera de la ventana
+        document.addEventListener('click', function (e) {
+          const modal = e.target.closest('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]');
+          if (!modal) return; // no estamos dentro de ningún modal
+          const insideWindow = e.target.closest(MODAL_WINDOW_SEL);
+          if (!insideWindow) closeModal(modal);
+        });
+      
+        // Cerrar con ESC
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== 'Escape') return;
+          document.querySelectorAll('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]')
+            .forEach(closeModal);
+        });
+      })();
+      </script>
+      
+      <!-- 1) Teléfono con Cleave: fija prefijo +51 y formato 9 dígitos -->
+      <script>
+        if (input._cleave && typeof input._cleave.destroy === 'function') { input._cleave.destroy(); input._cleave = null; }
+if (input.cleave  && typeof input.cleave.destroy  === 'function') { input.cleave.destroy();  input.cleave  = null; }
+input.oninput = input.onkeydown = input.onfocus = null; // limpia handlers que pudiera haber agregado Cleave
 
+        document.addEventListener('DOMContentLoaded', () => {
+          const PREFIX = '+51 ';
+          const inputs = document.querySelectorAll('.mil-phone-input');
+        
+          const format = (digits) => {
+            digits = (digits || '').replace(/\D/g, '').slice(0, 9); // máx 9 dígitos
+            const parts = [];
+            if (digits.length > 0) parts.push(digits.slice(0, 3));
+            if (digits.length > 3) parts.push(digits.slice(3, 6));
+            if (digits.length > 6) parts.push(digits.slice(6, 9));
+            return PREFIX + parts.join(' ');
+          };
+        
+          inputs.forEach(input => {
+            // valor inicial
+            if (!input.value || !input.value.startsWith(PREFIX)) {
+              input.value = PREFIX;
+            }
+            input.placeholder = '+51 9__ ___ ___';
+        
+            const moveCaret = () => {
+              // lleva el cursor al final pero nunca antes del prefijo
+              const pos = Math.max(PREFIX.length, input.value.length);
+              input.setSelectionRange(pos, pos);
+            };
+        
+            // impedir borrar el prefijo y moverse antes de él
+            input.addEventListener('keydown', (e) => {
+              const pos = input.selectionStart ?? 0;
+        
+              // bloquear backspace/delete dentro del prefijo
+              if ((e.key === 'Backspace' && pos <= PREFIX.length) ||
+                  (e.key === 'Delete' && pos < PREFIX.length)) {
+                e.preventDefault();
+                input.setSelectionRange(PREFIX.length, PREFIX.length);
+                return;
+              }
+        
+              // sólo permitir dígitos, flechas, tab, home/end
+              if (e.key.length === 1 && !/\d/.test(e.key)) {
+                e.preventDefault();
+              }
+        
+              // impedir ir a la izquierda del prefijo
+              if (e.key === 'ArrowLeft' && pos <= PREFIX.length) {
+                e.preventDefault();
+                input.setSelectionRange(PREFIX.length, PREFIX.length);
+              }
+              if (e.key === 'Home') {
+                e.preventDefault();
+                input.setSelectionRange(PREFIX.length, PREFIX.length);
+              }
+            });
+        
+            // re-formatear tras cada cambio
+            input.addEventListener('input', () => {
+              const digits = input.value.replace(PREFIX, '').replace(/\D/g, '');
+              input.value = format(digits);
+              // recolocar caret al final del texto formateado
+              setTimeout(moveCaret, 0);
+            });
+        
+            // al enfocar/click, pon el cursor después del prefijo
+            input.addEventListener('focus', () => setTimeout(moveCaret, 0));
+            input.addEventListener('click', () => setTimeout(moveCaret, 0));
+          });
+        });
+        </script>
+        
+        
+  
+  <!-- 2) Registro PocketBase -->
+  <script type="module">
+  import PocketBase from 'https://unpkg.com/pocketbase@0.21.3/dist/pocketbase.es.mjs';
+  const pb = new PocketBase('https://db.donreparador.com:8090');
+  
+  const form   = document.getElementById('signup-form');
+  const btn    = document.getElementById('sg-submit');
+  const status = document.getElementById('sg-status');
+  
+  // Limpia valores de prueba y evita que quede "admin" en el email
+  (() => {
+    const emailEl = document.getElementById('sg-email');
+    if (emailEl) {
+      if (/^admin(@.*)?$/i.test(emailEl.value.trim()) || emailEl.value.trim() === 'admin') {
+        emailEl.value = '';
+      }
+      if (!emailEl.placeholder) emailEl.placeholder = 'tucorreo@ejemplo.com';
+    }
+    // Si quieres limpiar otros campos de pruebas:
+    ['sg-name','sg-dni','sg-phone'].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el && /^(admin|test)$/i.test(el.value.trim())) el.value = '';
+    });
+  })();
+  
+  function setBusy(b){
+    if(!btn) return;
+    btn.disabled = b;
+    btn.style.opacity = b ? 0.7 : 1;
+  }
+  function showMsg(msg, ok=false){
+    if(!status) return;
+    status.textContent = msg;
+    status.style.color = ok ? '#2e7d32' : '#b3261e';
+  }
+  
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault(); showMsg(''); setBusy(true);
+    try {
+      const name  = document.getElementById('sg-name').value.trim();
+      const email = document.getElementById('sg-email').value.trim().toLowerCase();
+      const phoneRaw = document.getElementById('sg-phone').value.trim();
+      const dni   = document.getElementById('sg-dni').value.trim();
+      const pass  = document.getElementById('sg-pass').value;
+      const pass2 = document.getElementById('sg-pass2').value;
+      const file  = document.getElementById('sg-avatar').files?.[0];
+      const rolw  = (form.querySelector('input[name="rolw"]:checked')?.value || '').toLowerCase();
+  
+      // Validaciones
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Correo inválido.');
+      if (/^admin(@.*)?$/i.test(email)) throw new Error('El correo no puede ser "admin".');
+      if (!/^\d{8}$/.test(dni)) throw new Error('DNI inválido (8 dígitos).');
+      if (pass !== pass2) throw new Error('Las contraseñas no coinciden.');
+      if (!file) throw new Error('Sube una foto.');
+      if (!['client','provider'].includes(rolw)) throw new Error('Selecciona Cliente o Proveedor.');
+      if (file.size > 5 * 1024 * 1024) throw new Error('La foto supera 5MB.');
+  
+      // Normaliza teléfono a E.164 (+51xxxxxxxxx)
+      let phone = phoneRaw.replace(/[^\d+]/g, '');
+      if (!phone.startsWith('+51')) {
+        const onlyDigits = phone.replace(/\D/g,'');
+        if (/^\d{9}$/.test(onlyDigits)) phone = '+51' + onlyDigits;
+      }
+
+  
+      // Si es proveedor -> status=false (pendiente de revisión)
+      const isProvider = rolw === 'provider';
+      const statusVal  = isProvider ? 'false' : 'true';
+  
+      const fd = new FormData();
+      fd.append('email', email);
+      fd.append('emailVisibility', 'true');
+      fd.append('password', pass);
+      fd.append('passwordConfirm', pass2);
+      fd.append('name', name);
+      fd.append('phone', phone);
+      fd.append('dni', dni);
+      fd.append('rolw', rolw);        // 'client' | 'provider'
+      fd.append('type', rolw);        // si también usas 'type' en tu schema
+      fd.append('status', statusVal); // 'false' si provider
+      fd.append('avatar', file);
+  
+      const record = await pb.collection('users').create(fd);
+      await pb.collection('users').requestVerification(email);
+  
+      showMsg(
+        isProvider
+          ? '¡Cuenta creada como Proveedor! Verifica tu correo. Un admin revisará tu cuenta.'
+          : '¡Cuenta creada! Revisa tu correo para verificarla.',
+        true
+      );
+  
+      setTimeout(() => {
+        form.reset();
+        // vuelve a colocar el prefijo del teléfono luego del reset
+        const phoneEl = document.getElementById('sg-phone');
+        if (phoneEl) phoneEl.value = '+51 ';
+        const modal = document.getElementById('mil-discount-popup');
+        if (modal){
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden','true');
+          document.body.classList.remove('mil-modal-open');
+        }
+      }, 1200);
+  
+    } catch (err) {
+      let nice = err?.message || 'No se pudo crear la cuenta.';
+      const data = err?.data?.data || err?.response?.data?.data;
+      if (data && typeof data==='object'){
+        const details = Object.values(data).map(v=>v?.message).filter(Boolean).join(' · ');
+        if (details) nice = details;
+      }
+      showMsg(nice, false);
+      console.error(err);
+    } finally {
+      setBusy(false);
+    }
+  });
+  </script>
+  
+      
+        
+        
 </body>

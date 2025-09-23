@@ -477,32 +477,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ------------------------------------------- */
 
-    const initForms = () => {
-        var phoneInputs = document.querySelectorAll('.mil-phone-input');
-
-        phoneInputs.forEach(function (phoneInput) {
-            var cleave = new Cleave(phoneInput, {
-                delimiters: ['(', ')', '-', '-'],
-                blocks: [3, 3, 3, 2, 2],
-                prefix: '+38',
-                numericOnly: true,
-                noImmediatePrefix: true,
-            });
-
-            phoneInput.addEventListener('focus', function () {
-                if (phoneInput.value === '') {
-                    phoneInput.value = '+38';
-                }
-            });
-
-            phoneInput.addEventListener('blur', function () {
-                if (phoneInput.value === '+38' || phoneInput.value === '+38(') {
-                    phoneInput.value = '';
-                }
-            });
-        });
-    };
-    initForms();
+    // main.js
+const initForms = () => {
+    // 👇 ignora inputs que tengan data-native-mask
+    var phoneInputs = document.querySelectorAll('.mil-phone-input:not([data-native-mask])');
+  
+    phoneInputs.forEach(function (phoneInput) {
+      var cleave = new Cleave(phoneInput, {
+        delimiters: ['(', ')', '-', '-'],
+        blocks: [3, 3, 3, 2, 2],
+        prefix: '+51',
+        numericOnly: true,
+        noImmediatePrefix: true,
+      });
+  
+      // Exponer la instancia (útil si algún día quieres destruirla)
+      phoneInput._cleave = cleave;
+    });
+  };
+  initForms();
+  
 
     /* -------------------------------------------
             

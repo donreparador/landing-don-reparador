@@ -5740,6 +5740,22 @@ pagination
   -webkit-transform: scale(1);
           transform: scale(1);
 }
+.mil-modal-open { overflow: hidden; }
+#mil-requirements-popup {
+  position: fixed;
+  inset: 0;
+  display: none;           /* se cambia a block desde JS */
+  z-index: 9999;
+  background: rgba(0,0,0,.45);
+}
+#mil-requirements-popup .mil-popup-window{
+  position: relative;
+  max-width: 900px;
+  margin: 6vh auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
 
 
   
