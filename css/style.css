@@ -146,12 +146,12 @@ default
 
 *::-moz-selection {
   color: #323842;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
 }
 
 *::selection {
   color: #323842;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
 }
 
 ::-webkit-scrollbar {
@@ -209,12 +209,12 @@ a {
   left: 0;
   height: 0.15rem;
   width: 0;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-text-link.mil-a-2:after {
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
 }
 .mil-text-link:hover:after {
   width: 100%;
@@ -1910,11 +1910,11 @@ text color
 }
 
 .mil-a-1 {
-  color: #EDCE29;
+  color: #FFCC29;
 }
 
 .mil-a-2 {
-  color: #5A8CF5;
+  color: #2F5A9E;
 }
 
 .mil-hover-bri-105:hover {
@@ -1949,11 +1949,11 @@ text color
 }
 
 .mil-hover-a-1:hover {
-  color: #EDCE29;
+  color: #FFCC29;
 }
 
 .mil-hover-a-2:hover {
-  color: #5A8CF5;
+  color: #2F5A9E;
 }
 
 /* -------------------------------------------
@@ -1986,11 +1986,11 @@ background color
 }
 
 .mil-bg-a-1 {
-  background-color: #EDCE29 !important;
+  background-color: #FFCC29 !important;
 }
 
 .mil-bg-a-2 {
-  background-color: #5A8CF5 !important;
+  background-color: #2F5A9E !important;
 }
 
 .mil-hover-bg-m-1:hover {
@@ -2006,11 +2006,11 @@ background color
 }
 
 .mil-hover-bg-a-1:hover {
-  background-color: #EDCE29 !important;
+  background-color: #FFCC29 !important;
 }
 
 .mil-hover-bg-a-2:hover {
-  background-color: #5A8CF5 !important;
+  background-color: #2F5A9E !important;
 }
 
 /* -------------------------------------------
@@ -2447,7 +2447,7 @@ hero cards
   border-radius: 50%;
   width: 7rem;
   height: 7rem;
-  border: solid 0.4rem #5A8CF5;
+  border: solid 0.4rem #2F5A9E;
 }
 .mil-users-inline.mil-sm li {
   width: 4rem;
@@ -2458,7 +2458,7 @@ hero cards
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
-  border: solid 0.4rem #5A8CF5;
+  border: solid 0.4rem #2F5A9E;
 }
 .mil-users-inline.mil-dark-border li img {
   border: solid 0.4rem #323842;
@@ -2512,8 +2512,8 @@ hero cards
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 4px 0 0 0px #EDCE29;
-          box-shadow: 4px 0 0 0px #EDCE29;
+  -webkit-box-shadow: 4px 0 0 0px #FFCC29;
+          box-shadow: 4px 0 0 0px #FFCC29;
 }
 .mil-discount-card .mil-text-part .mil-dscnt-star {
   position: relative;
@@ -2803,7 +2803,7 @@ preloader
   display: block;
   width: 0%;
   height: 100%;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
@@ -3023,7 +3023,7 @@ main menu
   content: "\f111";
   margin-right: 1rem;
   font-size: 1rem;
-  color: #5A8CF5;
+  color: #2F5A9E;
   position: absolute;
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -3072,7 +3072,7 @@ main menu
   height: auto;
   padding: 1.5rem;
   min-width: 20rem;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   position: absolute;
   -webkit-transform: translateY(-0.7rem) scale(0.9);
           transform: translateY(-0.7rem) scale(0.9);
@@ -3512,7 +3512,7 @@ forms
   z-index: 999;
   list-style: none;
   width: 100%;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   padding: 1.5rem;
   -webkit-transform: translateY(-0.7rem) scale(0.9);
           transform: translateY(-0.7rem) scale(0.9);
@@ -3602,7 +3602,7 @@ services
           transform: scale(1.01);
 }
 .mil-service-card:hover .mil-btn {
-  background-color: #EDCE29 !important;
+  background-color: #FFCC29 !important;
 }
 
 .mil-service-card-long .mil-img-frame {
@@ -3817,7 +3817,7 @@ reviews
 .mil-slider-nav .mil-slider-arrow {
   width: 4rem;
   height: 4rem;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -3920,14 +3920,14 @@ accordion (faq)
 }
 .mil-accordion.mil-active .mil-icon {
   border-color: transparent;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   margin-top: 0.2rem;
 }
 
 .mil-panel {
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   max-height: 0;
   overflow: hidden;
   border-radius: 1rem;
@@ -4043,7 +4043,7 @@ blog
           transform: scale(1);
 }
 .mil-blog-card:hover .mil-descr .mil-btn {
-  background-color: #EDCE29 !important;
+  background-color: #FFCC29 !important;
 }
 
 .mil-category li {
@@ -4071,7 +4071,7 @@ blog
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-categories li a:hover {
-  color: #5A8CF5;
+  color: #2F5A9E;
   padding-left: 1rem;
 }
 
@@ -4181,7 +4181,7 @@ right side buttons
   font-family: "Font Awesome 5 Pro";
   font-weight: 400;
   content: "\f095";
-  color: #EDCE29;
+  color: #FFCC29;
   -webkit-animation: phone-move 4s ease-in-out infinite;
           animation: phone-move 4s ease-in-out infinite;
 }
@@ -4538,12 +4538,12 @@ range slider
   appearance: none;
   width: 2rem;
   height: 2rem;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   border-radius: 50%;
   margin-top: -0.8rem;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 0 0 #5A8CF5;
-          box-shadow: 0 0 0 0 #5A8CF5;
+  -webkit-box-shadow: 0 0 0 0 #2F5A9E;
+          box-shadow: 0 0 0 0 #2F5A9E;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
@@ -4553,20 +4553,20 @@ range slider
        appearance: none;
   width: 2rem;
   height: 2rem;
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   border-radius: 50%;
   margin-top: -0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 0 0 #5A8CF5;
+  box-shadow: 0 0 0 0 #2F5A9E;
   -moz-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-area-slider .mil-custom-range-slider input[type=range]::-webkit-slider-thumb:hover {
-  -webkit-box-shadow: 0 0 0 0.3rem #5A8CF5;
-          box-shadow: 0 0 0 0.3rem #5A8CF5;
+  -webkit-box-shadow: 0 0 0 0.3rem #2F5A9E;
+          box-shadow: 0 0 0 0.3rem #2F5A9E;
 }
 .mil-area-slider .mil-custom-range-slider input[type=range]::-moz-range-thumb:hover {
-  box-shadow: 0 0 0 0.3rem #5A8CF5;
+  box-shadow: 0 0 0 0.3rem #2F5A9E;
 }
 
 /* -------------------------------------------
@@ -4630,8 +4630,8 @@ radio button
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-custom-radio:hover .mil-radio-checkmark {
-  -webkit-box-shadow: inset 0 0 0 0.2rem #5A8CF5;
-          box-shadow: inset 0 0 0 0.2rem #5A8CF5;
+  -webkit-box-shadow: inset 0 0 0 0.2rem #2F5A9E;
+          box-shadow: inset 0 0 0 0.2rem #2F5A9E;
 }
 .mil-custom-radio input[type=radio] {
   position: absolute;
@@ -4639,9 +4639,9 @@ radio button
   cursor: pointer;
 }
 .mil-custom-radio input[type=radio]:checked ~ .mil-radio-checkmark {
-  background-color: #5A8CF5;
-  -webkit-box-shadow: inset 0 0 0 0.2rem #5A8CF5;
-          box-shadow: inset 0 0 0 0.2rem #5A8CF5;
+  background-color: #2F5A9E;
+  -webkit-box-shadow: inset 0 0 0 0.2rem #2F5A9E;
+          box-shadow: inset 0 0 0 0.2rem #2F5A9E;
 }
 .mil-custom-radio input[type=radio]:checked ~ .mil-radio-checkmark:after {
   -webkit-transform: rotate(45deg) scale(1);
@@ -4672,7 +4672,7 @@ checkbox
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-custom-checkbox.mil-checked {
-  border-color: #EDCE29 !important;
+  border-color: #FFCC29 !important;
 }
 .mil-custom-checkbox.mil-checked.mil-already-included {
   pointer-events: none;
@@ -4684,7 +4684,7 @@ checkbox
   left: 3rem;
   font-weight: 400;
   font-size: 1.4rem;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
   padding: 0.3rem 1rem;
   border-radius: 0 0 0.5rem 0.5rem;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
@@ -4730,8 +4730,8 @@ checkbox
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-custom-checkbox input[type=checkbox]:checked ~ .mil-checkbox-checkmark {
-  background-color: #5A8CF5;
-  border-color: #5A8CF5;
+  background-color: #2F5A9E;
+  border-color: #2F5A9E;
 }
 .mil-custom-checkbox .mil-checkbox-checkmark:after {
   content: "";
@@ -4763,7 +4763,7 @@ checkbox
           transform: scale(1.01);
 }
 .mil-custom-checkbox:hover .mil-checkbox-checkmark {
-  border: 0.2rem solid #5A8CF5;
+  border: 0.2rem solid #2F5A9E;
 }
 
 /* -------------------------------------------
@@ -4772,7 +4772,7 @@ number input
 
 ------------------------------------------- */
 .mil-room-btn {
-  background-color: #5A8CF5;
+  background-color: #2F5A9E;
   color: #fff;
   border: none;
   width: 2.4rem;
@@ -4781,8 +4781,8 @@ number input
   font-size: 1.6rem;
   line-height: 100%;
   padding-top: 0.2rem;
-  -webkit-box-shadow: 0 0 0 0 #5A8CF5;
-          box-shadow: 0 0 0 0 #5A8CF5;
+  -webkit-box-shadow: 0 0 0 0 #2F5A9E;
+          box-shadow: 0 0 0 0 #2F5A9E;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4797,8 +4797,8 @@ number input
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-room-btn:hover {
-  -webkit-box-shadow: 0 0 0 0.3rem #5A8CF5;
-          box-shadow: 0 0 0 0.3rem #5A8CF5;
+  -webkit-box-shadow: 0 0 0 0.3rem #2F5A9E;
+          box-shadow: 0 0 0 0.3rem #2F5A9E;
 }
 
 .mil-room-count {
@@ -5020,7 +5020,7 @@ subscription
           transform: scale(1.01);
 }
 .mil-subscription-card:hover .mil-btn {
-  background-color: #EDCE29 !important;
+  background-color: #FFCC29 !important;
 }
 
 /* -------------------------------------------
@@ -5661,7 +5661,7 @@ breadcrumbs
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-breadcrumbs li a:hover {
-  color: #5A8CF5;
+  color: #2F5A9E;
 }
 .mil-breadcrumbs li:last-child {
   cursor: not-allowed;
@@ -5691,7 +5691,7 @@ list
   font-weight: 600;
   content: "\f058";
   margin-right: 10px;
-  color: #5A8CF5;
+  color: #2F5A9E;
 }
 .mil-check-list.mil-has-last-space li:last-child {
   margin-bottom: 1.5rem;
@@ -5734,7 +5734,7 @@ pagination
 }
 .mil-page-pagination li.mil-current a {
   font-weight: 600;
-  background-color: #EDCE29;
+  background-color: #FFCC29;
 }
 .mil-page-pagination li.mil-current a:hover {
   -webkit-transform: scale(1);
