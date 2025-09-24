@@ -57,12 +57,12 @@
                     </div>
                     <nav class="mil-main-menu">
                         <ul id="swupMenu" class="mil-menu-transition mil-aic mil-m-4">
-                          <li><a href="#top">Inicio</a></li>
+                          <li><a href="index.html">Inicio</a></li>
                           <li><a href="#services">Servicios</a></li>
                           <li><a href="#como-funciona-expertos">¿Cómo funciona?</a></li>
                           <li><a href="#empresas">Empresas</a></li>                          
                           <li><a href="#join-experts">Trabaja con nosotros</a></li>
-                          <li><a href="#">Contacto</a></li>
+                          <!-- <li><a href="#">Contacto</a></li> -->
                         </ul>
                       </nav>
                       
@@ -71,7 +71,7 @@
                             <i class="far fa-mobile mil-icon mil-sm mil-bg-a-2 mil-m-4 mil-mr-15 mil-sm-hidden" style="padding-top: .2rem"></i>
                             <a href="tel:+51984663305" class="mil-fw-600" data-no-swup>+51 984663305</a>
                         </div>
-                        <a href="#" class="mil-btn mil-lg mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-icon-btn mil-hover-scale mil-md-hidden"><span>Contratar</span><i class="far fa-magic mil-bg-m-1 mil-a-1"></i></a>
+                        <a href="#join-experts" class="mil-btn mil-lg mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-icon-btn mil-hover-scale mil-md-hidden"><span>Contactar</span><i class="far fa-magic mil-bg-m-1 mil-a-1"></i></a>
                         <div class="mil-menu-btn">
                             <span></span>
                         </div>
@@ -111,16 +111,16 @@
             </div>
           
             <div class="mil-right-buttons">
-              <a href="index.html#top" class="mil-side-btn mil-back-to-top mil-hover-bri-120">
+              <a href="#top" class="mil-side-btn mil-back-to-top mil-hover-bri-120">
                 <i class="far fa-arrow-up mil-a-1"></i>
               </a>
-              <button class="mil-side-btn mil-open-window mil-hover-bri-120"></button>
+              <button class="mil-side-btn mil-open-window mil-hover-bri-120" data-modal-open=".mil-order-call-window"
+              aria-label="Solicitar llamada"></button>
             </div>
           </div>
           
           <!-- Popup: Descuento / Bienvenida -->
-          <div class="mil-discount-popup" id="mil-discount-popup">
-            <div class="mil-popup-window">
+          <div class="mil-discount-popup" id="mil-discount-popup" aria-hidden="true" style="display:none">            <div class="mil-popup-window">
               <div class="mil-envelope-top">
                 <i class="fal fa-times mil-close-popup"></i>
                 <svg viewBox="0 0 555 224" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,15 +150,15 @@
                         <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span>50</span>S/</div>
                       </div>
                       <div>
-                        <p class="mil-m-1 mil-mb-15 mil-opacity-7">¡Aprovecha!</p>
+                        <p class="mil-m-1 mil-mb-15 mil-opacity-7">Credito GRÁTIS</p>
 <!--                         <h3 class="mil-fs-32 mil-mb-20">Descuento en tu primer servicio <span class="mil-m-4">*</span></h3>
- -->                        <h3 class="mil-fs-32 mil-mb-20"> Credito GRÁTIS para expertos, por registro! <span class="mil-m-4">*</span></h3>
+ -->                        <h3 class="mil-fs-32 mil-mb-20">Para expertos, al registrarse! <span class="mil-m-4">*</span></h3>
                          <p class="mil-m-1 mil-opacity-7">Promoción por tiempo limitado</p>
                       </div>
                     </div>
                   </div>
                   <div class="mil-dscnt-part">
-                    <img src="img/ui/discount.svg" alt="discount">
+                    <img src="img/ui/discount.svg" alt="discount" style="padding: 0px;">
                     <div class="mil-up-text mil-m-4"><img src="img/ui/logo-light.png" alt="Don Reparador" style="width: 11rem; height: auto; margin-left: -.5rem"></div>
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                 <h4 class="mil-fs-36 mil-mb-60">🎉 ¡Bienvenido a Don Reparador!</h4>
                 <form id="signup-form" enctype="multipart/form-data">
                   <div class="row">
-                    <div class="col-12 mil-mb-10">
+                    <div class="col-12 mil-mb-10" style="padding-bottom: 10px;">
                       <label class="mil-fs-16 mil-fw-600 mil-m-1">Tipo de usuario</label>
                       <div class="mil-aic" role="radiogroup" aria-label="Tipo de usuario">
                         <label class="mil-custom-radio mil-mr-30">
@@ -255,8 +255,7 @@
             </div>
           </div>
           <!-- Popup: Requisitos para registrarte -->
-          <div id="mil-requirements-popup" class="mil-requirements-popup" style="display:none">
-            <div class="mil-popup-window">
+          <div id="mil-requirements-popup" class="mil-requirements-popup" aria-hidden="true" style="display:none">            <div class="mil-popup-window">
               <div class="mil-envelope-top">
                 <i class="fal fa-times mil-close-popup"></i>
                 <h3 class="mil-fs-28" style="margin:20px">Requisitos para registrarte</h3>
@@ -274,15 +273,127 @@
               </div>
             </div>
           </div>
-          
+          <!-- Popup: Solicitar servicio -->
+          <div id="service-request-popup" class="mil-requirements-popup" aria-hidden="true" style="display:none">            <div class="mil-popup-window">
+              <div class="mil-envelope-top">
+                <i class="fal fa-times mil-close-popup"></i>
+                <h3 class="mil-fs-28" style="margin:20px">Solicitar servicio</h3>
+              </div>
 
+              <div class="mil-envelope-body mil-br-lg" style="padding:24px">
+                <form id="sr-form" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-12 mil-mb-15">
+                      <label class="mil-fs-16 mil-fw-600 mil-m-1">Tipo de servicio</label>
+                      <div class="mil-input-frame">
+                        <select id="sr-category" name="category" class="mil-br-md mil-bg-m-3" required>
+                          <option value="">Selecciona…</option>
+                          <option>Limpieza y orden</option>
+                          <option>Fachada y entrada</option>
+                          <option>Sistemas y equipos</option>
+                          <option>Incidencias, SLA y reportes</option>
+                          <!-- agrega más si deseas -->
+                        </select>
+                        <i class="far fa-tools mil-a-2"></i>
+                      </div>
+                    </div>
 
+                    <div class="col-sm-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="text" id="sr-name" name="name" placeholder="Nombre y apellidos" class="mil-br-md mil-bg-m-3" autocomplete="name" required>
+                        <i class="far fa-user mil-a-2"></i>
+                      </div>
+                    </div>
 
+                    <div class="col-sm-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="tel" id="sr-phone" name="phone" class="mil-phone-input mil-br-md mil-bg-m-3" data-native-mask="1" placeholder="+51 9XX XXX XXX" autocomplete="tel" required>
+                        <i class="far fa-mobile mil-a-2"></i>
+                      </div>
+                    </div>
 
+                    <div class="col-sm-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="email" id="sr-email" name="email" placeholder="Correo (opcional)" class="mil-br-md mil-bg-m-3" autocomplete="email">
+                        <i class="far fa-at mil-a-2"></i>
+                      </div>
+                    </div>
 
-          
-        <!-- static content end -->
+                    <div class="col-sm-6 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="text" id="sr-district" name="district" placeholder="Distrito / zona" class="mil-br-md mil-bg-m-3" required>
+                        <i class="far fa-map-marker-alt mil-a-2"></i>
+                      </div>
+                    </div>
 
+                    <div class="col-12 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <input type="text" id="sr-address" name="address" placeholder="Dirección (calle, número, referencia)" class="mil-br-md mil-bg-m-3">
+                        <i class="far fa-location-arrow mil-a-2"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 mil-mb-15">
+                      <label class="mil-fs-16 mil-fw-600 mil-m-1">Fecha preferida</label>
+                      <div class="mil-input-frame">
+                        <input type="date" id="sr-date" name="date" class="mil-br-md mil-bg-m-3">
+                        <i class="far fa-calendar mil-a-2"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 mil-mb-15">
+                      <label class="mil-fs-16 mil-fw-600 mil-m-1">Horario</label>
+                      <div class="mil-input-frame">
+                        <select id="sr-timeslot" name="timeslot" class="mil-br-md mil-bg-m-3">
+                          <option value="">Indistinto</option>
+                          <option>Mañana (8:00–12:00)</option>
+                          <option>Tarde (12:00–17:00)</option>
+                          <option>Noche (17:00–21:00)</option>
+                        </select>
+                        <i class="far fa-clock mil-a-2"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mil-mb-15">
+                      <label class="mil-custom-checkbox mil-m-1 mil-fw-600">
+                        <input type="checkbox" id="sr-urgent" name="urgent" value="Sí">
+                        <span class="mil-checkbox-checkmark"></span>
+                        ¿Es urgente?
+                      </label>
+                    </div>
+
+                    <div class="col-12 mil-mb-15">
+                      <div class="mil-input-frame">
+                        <textarea id="sr-desc" name="desc" rows="4" class="mil-br-md mil-bg-m-3" placeholder="Describe el problema, tamaños, marcas, cantidad de puntos, etc." required></textarea>
+                        <i class="far fa-align-left mil-a-2"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mil-mb-20">
+                      <div class="mil-input-frame">
+                        <input type="file" id="sr-photos" name="photos" accept="image/*" class="mil-br-md mil-bg-m-3" multiple>
+                        <i class="far fa-image mil-a-2"></i>
+                      </div>
+                      <small class="mil-opacity-7">Puedes adjuntar fotos (opcional).</small>
+                    </div>
+
+                    <div class="col-lg-12 mil-aic mil-mt-10">
+                      <p class="mil-fs-14 mil-m-2 mil-tal">
+                        Al enviar aceptas nuestros Términos y Política de Privacidad.
+                      </p>
+                      <button id="sr-submit" class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale mil-ml-60 mil-sm-ml-30" type="submit">
+                        Enviar solicitud<i class="far fa-paper-plane mil-bg-m-1 mil-a-1"></i>
+                      </button>
+                    </div>
+
+                    <div class="col-12 mil-mt-15">
+                      <div id="sr-status" class="mil-fs-16" style="min-height:24px;"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         <!-- dynamic content -->
         <div id="swupMain" class="transition-fade">
 
@@ -331,9 +442,14 @@
               
                           <!-- CTAs -->
                           <div class="mil-buttons-frame">
-                            <a href="https://app.donreparador.com/" class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale">
+                            <a href="https://app.donreparador.com/" 
+                              target="_blank" 
+                              rel="noopener"
+                              data-no-swup
+                              class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale">
                               Buscar un experto<i class="far fa-plus mil-bg-m-4 mil-m-1"></i>
                             </a>
+
                             <!-- <a href="#calculator" class="mil-link mil-m-1 mil-reverse">
                               Calcula tu servicio<i class="far fa-calculator mil-bg-a-2 mil-m-4" style="padding: .2rem 0 0 .2rem"></i>
                             </a> -->
@@ -382,7 +498,7 @@
                       </div>
               
                       <!-- Card: promo/gancho -->
-                      <div class="col-lg-12 col-xxl-5 mil-mb-15">
+                      <div class="col-lg-12 col-xxl-5 mil-mb-15" href="#mil-discount-popup" data-popup-target="#mil-discount-popup" data-no-swup>
                         <div class="mil-discount-card mil-hover-move mil-call-popup">
                           <div class="mil-text-part mil-aic mil-bg-a-1">
                             <div class="mil-aic">
@@ -418,104 +534,137 @@
                     <div class="mil-dots"></div>
                     <b class="mil-fs-24">01</b>
                 </div>
-            
-                <!-- (Opcional) filtros rápidos -->
-                <!-- <div class="mil-up mil-mb-30">
-                    <ul class="mil-tags mil-aic" style="gap:10px; flex-wrap:wrap;">
-                    <li><button class="mil-btn mil-sm mil-br-xl" data-filter="all">Todos</button></li>
-                    <li><button class="mil-btn mil-sm mil-br-xl" data-filter="electricidad">Electricidad</button></li>
-                    <li><button class="mil-btn mil-sm mil-br-xl" data-filter="agua">Plomería</button></li>
-                    <li><button class="mil-btn mil-sm mil-br-xl" data-filter="carpinteria">Carpintería</button></li>
-                    <li><button class="mil-btn mil-sm mil-br-xl" data-filter="seguridad">Seguridad</button></li>
-                    </ul>
-                </div> -->
+
             
                 <div class="row mil-grid-compact">
                     <!-- 8 destacados (compactos, 1 línea de copy) -->
                     <!-- Electricistas -->
                     <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="electricidad">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
+                      <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-electricistas">
                         <img src="img/ui/electricista.png" alt="Electricistas" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Electricistas</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Instalaciones, cableado y soluciones domésticas/comerciales.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
+                        <h3 id="svc-electricistas" class="mil-fs-22 mil-mb-10">Electricistas</h3>
+                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Instalaciones, cableado y soluciones domésticas/comerciales.</p>
+                      
+                        <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                      </article>
+                      
                     </div>
             
-                    <!-- Plomería -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="agua">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/gasfitero.png" alt="Plomería" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">gasfitero</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Fugas, sanitarios, desatoros y puntos nuevos de agua.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Carpintería -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="carpinteria">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/carpintero.png" alt="Carpintería" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Carpintería</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Puertas, muebles, closets y reparaciones en madera.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Pintura -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/drywall.png" alt="Pintura" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Drywall</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Interior, exterior y empaste: látex, esmaltes, lacas y barnices.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Aire acondicionado -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/climatización.png" alt="Aire acondicionado" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Aire acondicionado</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Instalación, mantenimiento y reparación de equipos.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Seguridad (Cámaras y cercos) -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="seguridad">
-                    <a href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/camaras de seguridad.png" alt="Cámaras y cercos" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Cámaras y cercos</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">CCTV, cercos eléctricos e instalación profesional.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Mudanzas / Carguero -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
-                    <a href="https://app.donreparador.com/"  class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/mudanza.png" alt="Mudanzas" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Mudanzas & Carguero</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Traslado de muebles, embalaje y mudanzas locales/nacionales.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
-            
-                    <!-- Computación -->
-                    <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
-                    <a  href="https://app.donreparador.com/" class="mil-service-card mil-bg-m-4 mil-br-md mil-eq">
-                        <img src="img/ui/computadoras.png" alt="Computadoras" class="mil-card-icon mil-mb-20">
-                        <h3 class="mil-fs-22 mil-mb-10">Computadoras</h3>
-                        <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top: 10px; font-size: 2.2rem;">Formateo, mantenimiento, software y venta de partes.</p>
-                        <div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-mt-15">Solicitar servicio</div>
-                    </a>
-                    </div>
+                   <!-- Plomería -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="agua">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-plomeria">
+                      <img src="img/ui/gasfitero.png" alt="Plomería" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-plomeria" class="mil-fs-22 mil-mb-10">Gasfitero</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Fugas, sanitarios, desatoros y puntos nuevos de agua.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Carpintería -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="carpinteria">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-carpinteria">
+                      <img src="img/ui/carpintero.png" alt="Carpintería" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-carpinteria" class="mil-fs-22 mil-mb-10">Carpintería</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Puertas, muebles, closets y reparaciones en madera.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Drywall -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-drywall">
+                      <img src="img/ui/drywall.png" alt="Drywall" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-drywall" class="mil-fs-22 mil-mb-10">Drywall</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Interior, exterior y empaste: látex, esmaltes, lacas y barnices.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Aire acondicionado -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-aire">
+                      <img src="img/ui/climatización.png" alt="Aire acondicionado" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-aire" class="mil-fs-22 mil-mb-10">Aire acondicionado</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Instalación, mantenimiento y reparación de equipos.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Cámaras y cercos -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up" data-cat="seguridad">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-seguridad">
+                      <img src="img/ui/camaras de seguridad.png" alt="Cámaras y cercos" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-seguridad" class="mil-fs-22 mil-mb-10">Cámaras y cercos</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">CCTV, cercos eléctricos e instalación profesional.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Mudanzas / Carguero -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-mudanzas">
+                      <img src="img/ui/mudanza.png" alt="Mudanzas" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-mudanzas" class="mil-fs-22 mil-mb-10">Mudanzas &amp; Carguero</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Traslado de muebles, embalaje y mudanzas locales/nacionales.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
+                  <!-- Computadoras -->
+                  <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
+                    <article class="mil-service-card mil-bg-m-4 mil-br-md mil-eq" aria-labelledby="svc-computadoras">
+                      <img src="img/ui/computadoras.png" alt="Computadoras" class="mil-card-icon mil-mb-20">
+                      <h3 id="svc-computadoras" class="mil-fs-22 mil-mb-10">Computadoras</h3>
+                      <p class="mil-fs-16 mil-opacity-7 mil-line-2" style="padding-top:10px;">Formateo, mantenimiento, software y venta de partes.</p>
+
+                      <a href="https://app.donreparador.com/"
+                        target="_blank" rel="noopener" data-no-swup
+                        class="mil-btn mil-sm mil-bg-a-1 mil-br-xl mil-mt-15 mil-hover-bri-105 mil-hover-scale">
+                        Solicitar servicio
+                      </a>
+                    </article>
+                  </div>
+
                 </div>
             
                 <!-- Ver todos (abre modal o navega a página con grid completo) -->
                 <div class="mil-up mil-center mil-mt-30">
-                    <a href="https://app.donreparador.com/" class="mil-link">Ver todos los servicios<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i></a>
+                    <a href="https://app.donreparador.com/"
+                    target="_blank" rel="noopener" data-no-swup class="mil-link">Ver todos los servicios<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i></a>
                 </div>
             
                 <!-- CTA especialistas con gamificación -->
@@ -721,7 +870,7 @@
                   <div class="row">
                     <!-- 1. Limpieza y orden -->
                     <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
-                      <a href="#" class="mil-service-card mil-bg-m-4 mil-br-md">
+                      <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
                             <h3 class="mil-fs-30 mil-mb-30 mil-lh-110">Limpieza <br class="mil-sm-hidden">y orden</h3>
@@ -739,15 +888,21 @@
                               <li>Checklist y control de calidad</li>
                             </ul>
                             <div class="mil-dots mil-mb-30"></div>
-                            <div><div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale">Solicitar</div></div>
+                            <div>
+                              <button class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-open-service-request"
+                                        data-popup-target="#service-request-popup"
+                                        data-category="Limpieza y orden">
+                                  Solicitar
+                                </button>
+                            </div>
                           </div>
                         </div>
-                      </a>
+                      </article>
                     </div>
               
                     <!-- 2. Fachada y entrada -->
                     <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
-                      <a href="#" class="mil-service-card mil-bg-m-4 mil-br-md">
+                      <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
                             <h3 class="mil-fs-30 mil-mb-30 mil-lh-110">Fachada <br class="mil-sm-hidden">y entrada</h3>
@@ -765,15 +920,21 @@
                               <li>Señalética y acceso cuidado</li>
                             </ul>
                             <div class="mil-dots mil-mb-30"></div>
-                            <div><div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale">Solicitar</div></div>
+                            <div>
+                              <button class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-open-service-request"
+                              data-popup-target="#service-request-popup"
+                              data-category="Fachada y entrada"  data-no-swup>
+                              Solicitar
+                            </button>
+                            </div>
                           </div>
                         </div>
-                      </a>
+                      </article>
                     </div>
               
                     <!-- 3. Sistemas y equipos -->
                     <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
-                      <a href="#" class="mil-service-card mil-bg-m-4 mil-br-md">
+                      <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
                             <h3 class="mil-fs-30 mil-mb-30 mil-lh-110">Sistemas <br class="mil-sm-hidden">y equipos</h3>
@@ -791,15 +952,22 @@
                               <li>Reemplazos programados</li>
                             </ul>
                             <div class="mil-dots mil-mb-30"></div>
-                            <div><div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale">Solicitar</div></div>
+                            <div>
+                              <button class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-open-service-request"
+                              data-popup-target="#service-request-popup"
+                              data-category="Sistemas y equipos"
+                              data-no-swup>
+                              Solicitar
+                            </button>                            
+                            </div>
                           </div>
                         </div>
-                      </a>
+                      </article>
                     </div>
               
                     <!-- 4. Incidencias, SLA y reportes -->
                     <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
-                      <a href="#" class="mil-service-card mil-bg-m-4 mil-br-md">
+                      <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
                             <h3 class="mil-fs-30 mil-mb-30 mil-lh-110">Incidencias, SLA <br class="mil-sm-hidden">y reportes</h3>
@@ -817,10 +985,17 @@
                               <li>Facturación unificada</li>
                             </ul>
                             <div class="mil-dots mil-mb-30"></div>
-                            <div><div class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale">  Solicitar</div></div>
+                            <div>
+                              <button class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-open-service-request"
+                              data-popup-target="#service-request-popup"
+                              data-category="Incidencias, SLA y reportes"
+                              data-no-swup>
+                              Solicitar
+                            </button>                          
+                              </div>
                           </div>
                         </div>
-                      </a>
+                      </article>
                     </div>
                   </div>
                 </div>
@@ -844,13 +1019,17 @@
                         <div class="mil-cta mil-br-lg mil-bg-a-1 mil-aicb mil-up">
                             <div class="row mil-jcb">
                             <div class="col-lg-6 mil-mb-30">
-                                <h5 class="mil-fs-32 mil-m-1">¿Eres profesional? Recibe clientes cercanos sin pagar publicidad.</h5>
+                                <h5 class="mil-fs-32 mil-m-1">¿Eres profesional? Recibe clientes cercanos.</h5>
                             </div>
                             <div class="col-lg-6 mil-jce mil-md-jcs mil-mb-30">
-                                <a  class="mil-btn mil-icon-btn mil-bg-m-1 mil-m-4 mil-br-xl mil-hover-bri-105 mil-hover-scale" href="#modal">
-                                Crear cuenta gratis<i class="far fa-arrow-right mil-bg-a-1 mil-m-1"></i>
-                                </a>
-                            </div>
+                              <a href="#mil-discount-popup"
+                                 class="mil-btn mil-icon-btn mil-bg-m-1 mil-m-4 mil-br-xl mil-hover-bri-105 mil-hover-scale"
+                                 data-no-swup
+                                 data-popup-target="#mil-discount-popup">
+                                Crear cuenta gratis
+                                <i class="far fa-arrow-right mil-bg-a-1 mil-m-1"></i>
+                              </a>
+                            </div>                           
                             </div>
                         </div>
                         </div>
@@ -860,7 +1039,7 @@
                             <h5 class="mil-fs-22 mil-md-fs-32 mil-m-1 mil-mb-15 mil-md-mb-30">
                             Solicitudes 24/7 y notificaciones al instante
                             </h5>
-                            <a  class="mil-link mil-m-1 mil-mb-15">
+                            <a href="#como-funciona-proveedores" class="mil-link mil-m-1 mil-mb-15">
                             Ver cómo funciona<i class="far fa-arrow-right mil-bg-m-3 mil-m-1"></i>
                             </a>
                         </div>
@@ -889,10 +1068,13 @@
                                 Activa tu perfil, elige categorías y zonas, y empieza a recibir solicitudes hoy mismo.
                             </p>
                             <div class="mil-buttons-frame">
-                                <a href="#mil-discount-popup" class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-mr-30">
-                                Registrarme<i class="far fa-plus mil-bg-m-1 mil-a-1"></i>
-                                </a>
-                                <a href="#mil-requirements-popup"
+                              <a href="#mil-discount-popup"
+                              class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-mr-30"
+                              data-no-swup
+                              data-popup-target="#mil-discount-popup">
+                             Registrarme<i class="far fa-plus mil-bg-m-1 mil-a-1"></i>
+                           </a>
+                                <a  href="#mil-requirements-popup"
                                   class="mil-link mil-m-4"
                                   data-no-swup
                                   data-popup-target="#mil-requirements-popup">
@@ -940,28 +1122,28 @@
                         <div class="col-lg-5 col-xxl-3 mil-mb-15 mil-up">
                             <div class="mil-hero-reviews-card mil-bg-m-4 mil-br-md">
                             <h3 class="mil-fs-32 mil-mb-30 mil-m-1">¿Cómo funciona para expertos?</h3>
-                            <a href="#" class="mil-link mil-m-1">Ver paso a paso<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i></a>
+                            <a href="#como-funciona-proveedores" class="mil-link mil-m-1">Ver paso a paso<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i></a>
                             </div>
                         </div>
                 
                         <!-- Promoción / bonificación -->
-                        <div class="col-lg-12 col-xxl-5 mil-mb-15 mil-up">
-                            <div class="mil-discount-card mil-hover-move">
+                        <div class="col-lg-12 col-xxl-5 mil-mb-15" href="#mil-discount-popup" data-popup-target="#mil-discount-popup" data-no-swup>
+                          <div class="mil-discount-card mil-hover-move">
                             <div class="mil-text-part mil-aic mil-bg-a-1">
                                 <div class="mil-aic">
                                 <div class="mil-dscnt-star mil-invert">
                                     <img src="img/ui/star.svg" alt="star">
-                                    <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span class="mil-counter" data-number="50">50</span>SOLES</div>
+                                    <div class="mil-fs-40 mil-lh-100 mil-m-3 mil-fw-700"><span class="mil-counter" data-number="50">50</span>S/</div>
                                 </div>
                                 <div>
                                     <p class="mil-m-1 mil-mb-15 mil-opacity-7">Promoción de bienvenida</p>
-                                    <h3 class="mil-fs-32 mil-mb-20">Descuentos en comisión* en tus primeros trabajos</h3>
+                                    <h3 class="mil-fs-32 mil-mb-20">Registratame como EXPERTO y recibe un saldo de iniciación</h3>
                                     <p class="mil-m-1 mil-opacity-7">Cupón por tiempo limitado. Aplica términos.</p>
                                 </div>
                                 </div>
                             </div>
                             <div class="mil-dscnt-part">
-                                <img src="img/ui/discount.svg" alt="bonus">
+                                <img src="img/ui/discount.svg" alt="bonus" style="padding: 0px;">
                                 <div class="mil-up-text mil-m-4">Activar ahora</div>
                             </div>
                             </div>
@@ -972,13 +1154,71 @@
                     </div>
                 </div>
                 <!-- call to action end -->
+                 <!-- ¿Cómo funciona para expertos? -->
+              <div class="mil-p-f-15" id="como-funciona-proveedores">
+                <div class="container">
+                  <div class="mil-section-title mil-mb-f mil-up">
+                    <h2 class="mil-fs-36">¿Cómo funciona para expertos?</h2>
+                    <div class="mil-dots"></div>
+                    <b class="mil-fs-24">06</b> <!-- ajusta este número según el orden de la sección -->
+                  </div>
+
+                  <div class="row">
+                    <!-- 01 -->
+                    <div class="col-md-6 col-lg-3 mil-mb-15 mil-up">
+                      <div class="mil-step-card mil-step-line mil-bg-m-4 mil-br-md">
+                        <div class="mil-fs-40 mil-ff-3 mil-a-2 mil-mb-20">01</div>
+                        <h3 class="mil-fs-30 mil-mb-20 mil-lh-110 mil-mb-15">
+                          Regístrate <br class="mil-sm-hidden">gratis
+                        </h3>
+                        <p>Crea tu cuenta, elige categorías y zonas de cobertura. Activa notificaciones.</p>
+                      </div>
+                    </div>
+
+                    <!-- 02 -->
+                    <div class="col-md-6 col-lg-3 mil-mb-15 mil-up">
+                      <div class="mil-step-card mil-step-line mil-bg-m-4 mil-br-md">
+                        <div class="mil-fs-40 mil-ff-3 mil-a-2 mil-mb-20">02</div>
+                        <h3 class="mil-fs-30 mil-mb-20 mil-lh-110 mil-mb-15">
+                          Verifica tu <br class="mil-sm-hidden">perfil
+                        </h3>
+                        <p>Sube DNI, foto y certificaciones (si aplica). Define disponibilidad y métodos de pago.</p>
+                      </div>
+                    </div>
+
+                    <!-- 03 -->
+                    <div class="col-md-6 col-lg-3 mil-mb-15 mil-up">
+                      <div class="mil-step-card mil-step-line mil-bg-m-4 mil-br-md">
+                        <div class="mil-fs-40 mil-ff-3 mil-a-2 mil-mb-20">03</div>
+                        <h3 class="mil-fs-30 mil-mb-20 mil-lh-110 mil-mb-15">
+                          Recibe y cotiza <br class="mil-sm-hidden">solicitudes
+                        </h3>
+                        <p>Te llegan trabajos cercanos. Revisa el detalle, negocia precio/tiempos y envía tu propuesta.</p>
+                      </div>
+                    </div>
+
+                    <!-- 04 -->
+                    <div class="col-md-6 col-lg-3 mil-mb-15 mil-up">
+                      <div class="mil-step-card mil-bg-m-4 mil-br-md">
+                        <div class="mil-fs-40 mil-ff-3 mil-a-2 mil-mb-20">04</div>
+                        <h3 class="mil-fs-30 mil-mb-20 mil-lh-110 mil-mb-15">
+                          Agenda, <br class="mil-sm-hidden">trabaja y cobra
+                        </h3>
+                        <p>Confirma la cita, realiza el servicio y recibe el pago. Gana reputación y sube de nivel.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                </div>
+              </div>
             <!-- faq -->
             <div class="mil-p-0-30" id="faq">
                 <div class="container">
                   <div class="mil-section-title mil-mb-f mil-up">
                     <h2 class="mil-fs-36">Preguntas frecuentes</h2>
                     <div class="mil-dots"></div>
-                    <b class="mil-fs-24">06</b>
+                    <b class="mil-fs-24">07</b>
                   </div>
               
                   <div class="row mil-mb-60">
@@ -1120,6 +1360,8 @@
                   </div>
                 </div>
               </div>
+              
+
               <!-- calculator -->
              <!--  <div id="calculator">
                 <div class="container mil-p-0-f">
@@ -1479,402 +1721,541 @@
     <!-- fancybox js -->
     <script src="js/plugins/fancybox.js"></script>
     <!-- calculator js -->
-    <script src="js/plugins/calculator.js"></script>
-    <!-- main js -->
+<!--     <script src="js/plugins/calculator.js"></script>
+ -->    <!-- main js -->
     <script src="js/main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const btns = document.querySelectorAll('[data-filter]');
+      (function(){
+        'use strict';
+        // evita doble inicialización si el bundle o swup reinyectan
+        if (window.__modalsV2) return; window.__modalsV2 = true;
+      
+        const OPEN_CLASS = 'mil-modal-open';
+        // soporto tus clases actuales y también [data-modal] si quisieras marcar más popups
+        const WRAPS = '.mil-discount-popup, .mil-requirements-popup, #service-request-popup, [data-modal]';
+        const WIN   = '.mil-popup-window';
+      
+        const isModal = (el) => el && el.matches(WRAPS);
+      
+        function openModal(modal){
+          if (!modal) return;
+          modal.style.display = 'flex';              // centra con flex
+          modal.setAttribute('aria-hidden','false');
+          modal.dataset.open = '1';
+          document.body.classList.add(OPEN_CLASS);
+        }
+        function closeModal(modal){
+          if (!modal) return;
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden','true');
+          delete modal.dataset.open;
+          // si no quedan modales abiertos, quita la clase del body
+          if (!document.querySelector(`${WRAPS}[aria-hidden="false"]`)) {
+            document.body.classList.remove(OPEN_CLASS);
+          }
+        }
+      
+        // Abrir (fase de captura) — gana a otros listeners del tema/Swup
+        document.addEventListener('click', (e) => {
+          const opener = e.target.closest('[data-modal-open],[data-popup-target],a[href^="#"]');
+          if (!opener) return;
+      
+          let sel = opener.getAttribute('data-modal-open')
+                   || opener.getAttribute('data-popup-target')
+                   || opener.getAttribute('href');
+          if (!sel || sel === '#') return;
+      
+          const modal = document.querySelector(sel);
+          if (!isModal(modal)) return;
+      
+          e.preventDefault();
+          // limpia el hash para que puedas volver a hacer clic al mismo enlace seguidamente
+          if (opener.tagName === 'A' && sel.startsWith('#')) {
+            try { history.replaceState(null, document.title, location.pathname + location.search); } catch {}
+          }
+          openModal(modal);
+        }, true);
+      
+        // Cerrar con botón X
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.mil-close-popup');
+          if (!btn) return;
+          const modal = btn.closest(WRAPS);
+          closeModal(modal);
+        });
+      
+        // Cerrar clic fuera de la ventana
+        document.addEventListener('click', (e) => {
+          const modal = e.target.closest(WRAPS);
+          if (!modal) return;                // no estamos en ningún modal
+          if (!e.target.closest(WIN)) closeModal(modal);
+        });
+      
+        // Cerrar con ESC (cierra el “topmost”)
+        document.addEventListener('keydown', (e) => {
+          if (e.key !== 'Escape') return;
+          const open = [...document.querySelectorAll(`${WRAPS}[aria-hidden="false"]`)].pop();
+          closeModal(open);
+        });
+      })();
+      </script>
+      
+    <script>
+      (function(){
+        'use strict';
+      
+        /* ===================== Filtros (servicios) ===================== */
+        // data-filter="all|electricidad|..."  →  #services [data-cat="..."]
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-filter]');
+          if (!btn) return;
+          const f = btn.getAttribute('data-filter');
           const items = document.querySelectorAll('#services [data-cat]');
-          btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-              const f = btn.getAttribute('data-filter');
-              items.forEach(it => {
-                it.style.display = (f === 'all' || it.dataset.cat === f) ? '' : 'none';
-              });
-            });
+          items.forEach(it => {
+            it.style.display = (!f || f === 'all' || it.dataset.cat === f) ? '' : 'none';
           });
         });
+      
+        /* ===================== Modales ===================== */
+        const OPEN_CLASS = 'mil-modal-open';
+        const WRAPS = '.mil-discount-popup, .mil-requirements-popup, #service-request-popup';
+        const WIN   = '.mil-popup-window';
+      
+        function openModal(el){
+          if(!el) return;
+          el.style.display = 'flex';               // clave para centrar con flex
+          el.setAttribute('aria-hidden','false');
+          document.body.classList.add(OPEN_CLASS);
+        }
+        function closeModal(el){
+          if(!el) return;
+          el.style.display = 'none';
+          el.setAttribute('aria-hidden','true');
+          document.body.classList.remove(OPEN_CLASS);
+        }
+      
+        // Abrir por [data-popup-target] o <a href="#id">
+        document.addEventListener('click', (e) => {
+          const opener = e.target.closest('[data-popup-target], a[href^="#"]');
+          if (!opener) return;
+          let sel = opener.getAttribute('data-popup-target') || opener.getAttribute('href');
+          if (!sel || sel === '#') return;
+          const target = document.querySelector(sel);
+          if (target && target.matches(WRAPS)) {
+            e.preventDefault();
+            openModal(target);
+          }
+        }, true);
+      
+        // Cerrar con botón .mil-close-popup
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.mil-close-popup');
+          if (!btn) return;
+          const wrap = btn.closest(WRAPS);
+          if (wrap) closeModal(wrap);
+        });
+      
+        // Cerrar clic fuera de la ventana
+        document.addEventListener('click', (e) => {
+          const wrap = e.target.closest(WRAPS);
+          if (!wrap) return;
+          if (!e.target.closest(WIN)) closeModal(wrap);
+        });
+      
+        // Cerrar con ESC
+        document.addEventListener('keydown', (e) => {
+          if (e.key !== 'Escape') return;
+          document.querySelectorAll(WRAPS).forEach(closeModal);
+        });
+      
+        // Botones "Solicitar" (tarjetas de empresas): preseleccionar y abrir
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.mil-open-service-request');
+          if (!btn) return;
+          const cat = (btn.getAttribute('data-category') || '').trim().toLowerCase();
+          const sel = document.getElementById('sr-category');
+          if (sel) {
+            const opt = [...sel.options].find(o => o.textContent.trim().toLowerCase() === cat);
+            if (opt) sel.value = opt.value;
+          }
+          const wrap = document.querySelector('#service-request-popup');
+          if (wrap && wrap.getAttribute('aria-hidden') !== 'false') openModal(wrap);
+        });
+      
+        /* ===================== Teléfono (+51 9XX XXX XXX) ===================== */
+        function initPhoneInputs(){
+          const PREFIX = '+51 ';
+          const inputs = document.querySelectorAll('.mil-phone-input');
+          if (!inputs.length) return;
+      
+          const format = (digits) => {
+            digits = (digits || '').replace(/\D/g, '').slice(0, 9);
+            const parts = [];
+            if (digits.length > 0) parts.push(digits.slice(0,3));
+            if (digits.length > 3) parts.push(digits.slice(3,6));
+            if (digits.length > 6) parts.push(digits.slice(6,9));
+            return PREFIX + parts.join(' ');
+          };
+      
+          inputs.forEach((inp) => {
+            if (!inp.value || !inp.value.startsWith(PREFIX)) inp.value = PREFIX;
+            inp.placeholder = '+51 9__ ___ ___';
+      
+            const moveCaret = () => {
+              const pos = Math.max(PREFIX.length, inp.value.length);
+              try { inp.setSelectionRange(pos, pos); } catch {}
+            };
+      
+            inp.addEventListener('keydown', (e) => {
+              const pos = inp.selectionStart ?? 0;
+              if ((e.key === 'Backspace' && pos <= PREFIX.length) ||
+                  (e.key === 'Delete' && pos < PREFIX.length)) {
+                e.preventDefault(); moveCaret(); return;
+              }
+              if (e.key.length === 1 && !/\d/.test(e.key)) e.preventDefault();
+              if (e.key === 'ArrowLeft' && pos <= PREFIX.length) { e.preventDefault(); moveCaret(); }
+              if (e.key === 'Home') { e.preventDefault(); moveCaret(); }
+            });
+      
+            inp.addEventListener('input', () => {
+              const digits = inp.value.replace(PREFIX, '').replace(/\D/g, '');
+              inp.value = format(digits);
+              setTimeout(moveCaret, 0);
+            });
+      
+            inp.addEventListener('focus', () => setTimeout(moveCaret, 0));
+            inp.addEventListener('click', () => setTimeout(moveCaret, 0));
+          });
+        }
+      
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initPhoneInputs, { once: true });
+        } else {
+          initPhoneInputs();
+        }
+      
+        /* ===================== #sr-form → WhatsApp ===================== */
+        function initServiceRequestToWhatsApp(){
+          const form = document.getElementById('sr-form');
+          if (!form) return;
+      
+          const get   = (id) => document.getElementById(id)?.value?.trim() || '';
+          const getChk= (id) => document.getElementById(id)?.checked ? 'Sí' : 'No';
+      
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+      
+            const category = get('sr-category') || '—';
+            const name     = get('sr-name');
+            const phoneRaw = get('sr-phone').replace(/[^\d+]/g, '');
+            const email    = get('sr-email');
+            const district = get('sr-district');
+            const address  = get('sr-address');
+            const date     = get('sr-date');
+            const slot     = get('sr-timeslot');
+            const urgent   = getChk('sr-urgent');
+            const desc     = get('sr-desc');
+      
+            if (!name || !phoneRaw || !district || !desc) {
+              const st = document.getElementById('sr-status');
+              if (st) st.textContent = 'Completa nombre, teléfono, distrito y descripción.';
+              return;
+            }
+      
+            // normaliza a +51XXXXXXXXX
+            let phone = phoneRaw;
+            if (!phone.startsWith('+51')) {
+              const d = phone.replace(/\D/g,'');
+              if (/^\d{9}$/.test(d)) phone = '+51' + d;
+            }
+      
+            const lines = [
+              '🛠️ *Nueva solicitud*',
+              `• *Servicio:* ${category}`,
+              `• *Nombre:* ${name}`,
+              `• *Teléfono:* ${phone}`,
+              email ? `• *Correo:* ${email}` : null,
+              `• *Distrito:* ${district}`,
+              address ? `• *Dirección:* ${address}` : null,
+              (date || slot) ? `• *Preferencia:* ${[date, slot].filter(Boolean).join(' · ')}` : null,
+              `• *Urgente:* ${urgent}`,
+              '',
+              `*Detalle:* ${desc}`
+            ].filter(Boolean).join('\n');
+      
+            // tu número de atención:
+            const WAPP_NUMBER = '51984663305';
+            window.open(`https://wa.me/${WAPP_NUMBER}?text=${encodeURIComponent(lines)}`, '_blank', 'noopener');
+      
+            const st = document.getElementById('sr-status');
+            if (st) st.textContent = 'Abriendo WhatsApp…';
+      
+            const popup = document.getElementById('service-request-popup');
+            setTimeout(() => closeModal(popup), 500);
+          });
+        }
+      
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initServiceRequestToWhatsApp, { once: true });
+        } else {
+          initServiceRequestToWhatsApp();
+        }
+      
+      })();
       </script>
-    
     <script>
-        (() => {
-          // === Parámetros del modelo de precio ===
-          const BASE_AREA = 90;                   // m² incluidos en el precio base
-          const BEDROOM_PCT = 0.08;               // +8% por dormitorio adicional
-          const BATHROOM_PCT = 0.07;              // +7% por baño adicional
-        
-          const fmt = new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN', maximumFractionDigits: 0 });
-        
-          // === Referencias ===
-          const form = document.getElementById('calc-form');
-          const areaInput = document.getElementById('area');
-          const areaValue = document.getElementById('area-value');
-          const totalOut = document.getElementById('total-price');
-          const cleaningRadios = [...document.querySelectorAll('input[name="cleaning"]')];
-          const propertyRadios = [...document.querySelectorAll('input[name="property"]')];
-          const extras = [...document.querySelectorAll('.mil-additional-service')];
-        
-          // Dropdown "custom select"
-          const cleaningSelect = document.getElementById('cleaning-select');
-          const selectBtn = cleaningSelect.querySelector('.mil-select-button');
-          const selectList = cleaningSelect.querySelector('.mil-cleaning-type');
-          const selectLabel = document.getElementById('selected-cleaning-label');
-        
-          // === Utilidades ===
-          function getSelectedCleaning() {
-            return cleaningRadios.find(r => r.checked);
-          }
-          function getSelectedProperty() {
-            return propertyRadios.find(r => r.checked)?.value || 'apartment';
-          }
-          function basePrice() {
-            const c = getSelectedCleaning();
-            const prop = getSelectedProperty();
-            const raw = Number(c?.dataset[prop] || 0);
-            // Ajuste por área (lineal sobre BASE_AREA)
-            const factor = Number(areaInput.value) / BASE_AREA;
-            return raw * factor;
-          }
-          function roomsAdj(base) {
-            const bedrooms = Number(document.getElementById('bedrooms-count').textContent);
-            const bathrooms = Number(document.getElementById('bathrooms-count').textContent);
-            const extraBedrooms = Math.max(0, bedrooms - 1);
-            const extraBathrooms = Math.max(0, bathrooms - 1);
-            return base * (extraBedrooms * BEDROOM_PCT + extraBathrooms * BATHROOM_PCT);
-          }
-          function extrasSum() {
-            return extras.filter(el => el.checked).reduce((acc, el) => acc + Number(el.value || 0), 0);
-          }
-          function updateAreaUI() {
-            areaValue.textContent = `${areaInput.value} m²`;
-            const track = cleaningSelect.closest('#calculador').querySelector('.range-track .range-fill');
-            const min = Number(areaInput.min), max = Number(areaInput.max), val = Number(areaInput.value);
+      (() => {
+        'use strict';
+        const form = document.getElementById('calc-form');
+        if (!form) return;
+      
+        const BASE_AREA = 90;
+        const BEDROOM_PCT = 0.08;
+        const BATHROOM_PCT = 0.07;
+        const fmt = new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN', maximumFractionDigits: 0 });
+      
+        const areaInput = form.querySelector('#area');
+        const areaValue = form.querySelector('#area-value');
+        const totalOut  = form.querySelector('#total-price');
+        const cleaningRadios = [...form.querySelectorAll('input[name="cleaning"]')];
+        const propertyRadios = [...form.querySelectorAll('input[name="property"]')];
+        const extras = [...form.querySelectorAll('.mil-additional-service')];
+        const selectWrap = form.querySelector('#cleaning-select');
+        const selectBtn  = selectWrap?.querySelector('.mil-select-button');
+        const selectList = selectWrap?.querySelector('.mil-cleaning-type');
+        const selectLabel= form.querySelector('#selected-cleaning-label');
+      
+        const getSelectedCleaning = () => cleaningRadios.find(r => r.checked);
+        const getSelectedProperty = () => propertyRadios.find(r => r.checked)?.value || 'apartment';
+      
+        function basePrice(){
+          const c = getSelectedCleaning();
+          const prop = getSelectedProperty();
+          const raw = Number(c?.dataset[prop] || 0);
+          const factor = Number(areaInput?.value || BASE_AREA) / BASE_AREA;
+          return raw * factor;
+        }
+        function roomsAdj(base){
+          const bedrooms = Number(form.querySelector('#bedrooms-count')?.textContent || 1);
+          const bathrooms= Number(form.querySelector('#bathrooms-count')?.textContent || 1);
+          const extraBedrooms = Math.max(0, bedrooms - 1);
+          const extraBathrooms= Math.max(0, bathrooms - 1);
+          return base * (extraBedrooms * BEDROOM_PCT + extraBathrooms * BATHROOM_PCT);
+        }
+        function extrasSum(){
+          return extras.filter(el => el.checked).reduce((acc, el) => acc + Number(el.value || 0), 0);
+        }
+        function updateAreaUI(){
+          if (areaValue && areaInput) areaValue.textContent = `${areaInput.value} m²`;
+          const track = form.querySelector('.range-track .range-fill');
+          if (track && areaInput){
+            const min = Number(areaInput.min||0), max = Number(areaInput.max||100), val = Number(areaInput.value||0);
             const pct = ((val - min) / (max - min)) * 100;
-            if (track) track.style.width = `${pct}%`;
+            track.style.width = `${Math.max(0, Math.min(100, pct))}%`;
           }
-          function updateSelectedCleaningLabel() {
-            const lab = getSelectedCleaning()?.nextElementSibling?.textContent?.trim() || 'Limpieza';
-            selectLabel.textContent = lab;
-          }
-          function calcAndRender() {
-            const base = basePrice();
-            const rooms = roomsAdj(base);
-            const add = extrasSum();
-            const total = Math.max(0, Math.round(base + rooms + add));
-            totalOut.textContent = fmt.format(total);
-          }
-        
-          // === Eventos ===
-          // Custom select toggle
+        }
+        function updateSelectedCleaningLabel(){
+          if (!selectLabel) return;
+          const lab = getSelectedCleaning()?.nextElementSibling?.textContent?.trim() || 'Limpieza';
+          selectLabel.textContent = lab;
+        }
+        function calcAndRender(){
+          const base = basePrice();
+          const rooms = roomsAdj(base);
+          const add = extrasSum();
+          const total = Math.max(0, Math.round(base + rooms + add));
+          if (totalOut) totalOut.textContent = fmt.format(total);
+        }
+      
+        // Custom select
+        if (selectBtn && selectList){
           selectBtn.addEventListener('click', () => {
             const expanded = selectBtn.getAttribute('aria-expanded') === 'true';
             selectBtn.setAttribute('aria-expanded', String(!expanded));
             selectList.classList.toggle('open', !expanded);
           });
-          // Cerrar al clicar fuera
           document.addEventListener('click', (e) => {
-            if (!cleaningSelect.contains(e.target)) {
+            if (!selectWrap?.contains(e.target)) {
               selectBtn.setAttribute('aria-expanded', 'false');
               selectList.classList.remove('open');
             }
           });
-          // Cambios de limpieza
-          cleaningRadios.forEach(r => r.addEventListener('change', () => {
-            updateSelectedCleaningLabel();
-            calcAndRender();
-          }));
-          // Cambios de propiedad
-          propertyRadios.forEach(r => r.addEventListener('change', calcAndRender));
-          // Área
-          areaInput.addEventListener('input', () => { updateAreaUI(); calcAndRender(); });
-          // Extras
-          extras.forEach(cb => cb.addEventListener('change', calcAndRender));
-        
-          // Submit (solo demo)
-          form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Aquí podrías abrir un modal o redirigir a contacto con parámetros
-            window.location.href = '#';
-          });
-        
-          // Controles +/-
-          window.updateRoomCount = function (type, delta) {
-            const el = document.getElementById(`${type}-count`);
-            let v = Number(el.textContent) + delta;
-            v = Math.min(10, Math.max(1, v));
-            el.textContent = String(v);
-            calcAndRender();
-          };
-        
-          // Init
-          updateSelectedCleaningLabel();
-          updateAreaUI();
+        }
+      
+        cleaningRadios.forEach(r => r.addEventListener('change', () => { updateSelectedCleaningLabel(); calcAndRender(); }));
+        propertyRadios.forEach(r => r.addEventListener('change', calcAndRender));
+        areaInput?.addEventListener('input', () => { updateAreaUI(); calcAndRender(); });
+        extras.forEach(cb => cb.addEventListener('change', calcAndRender));
+      
+        form.addEventListener('submit', (e) => { e.preventDefault(); window.location.hash = 'calculator'; });
+      
+        window.updateRoomCount = function (type, delta) {
+          const el = form.querySelector(`#${type}-count`);
+          if (!el) return;
+          let v = Number(el.textContent) + delta;
+          v = Math.min(10, Math.max(1, v));
+          el.textContent = String(v);
           calcAndRender();
-        })();
-        </script>
-    <script>
-      (function () {
-        const OPEN_BODY_CLASS = 'mil-modal-open';
-        const MODAL_WINDOW_SEL = '.mil-popup-window';
-        const CLOSE_BTN_SEL = '.mil-close-popup';
+        };
       
-        function openModal(modal) {
-          if (!modal) return;
-          modal.style.display = 'block';
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.classList.add(OPEN_BODY_CLASS);
-        }
-      
-        function closeModal(modal) {
-          if (!modal) return;
-          modal.style.display = 'none';
-          modal.setAttribute('aria-hidden', 'true');
-          document.body.classList.remove(OPEN_BODY_CLASS);
-        }
-      
-        // Delegación: abrir por data-popup-target
-        document.addEventListener('click', function (e) {
-          const opener = e.target.closest('[data-popup-target]');
-          if (!opener) return;
-      
-          const sel = opener.getAttribute('data-popup-target');
-          if (!sel) return;
-      
-          const modal = document.querySelector(sel);
-          if (!modal) {
-            console.warn('No se encontró el modal:', sel);
-            return;
-          }
-      
-          e.preventDefault();
-          openModal(modal);
-        });
-      
-        // Delegación: cerrar al pulsar la X
-        document.addEventListener('click', function (e) {
-          if (e.target.closest(CLOSE_BTN_SEL)) {
-            const modal = e.target.closest('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]');
-            // Tip: ajusta el selector de arriba a las clases que uses para tus popups
-            closeModal(modal);
-          }
-        });
-      
-        // Cerrar al click fuera de la ventana
-        document.addEventListener('click', function (e) {
-          const modal = e.target.closest('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]');
-          if (!modal) return; // no estamos dentro de ningún modal
-          const insideWindow = e.target.closest(MODAL_WINDOW_SEL);
-          if (!insideWindow) closeModal(modal);
-        });
-      
-        // Cerrar con ESC
-        document.addEventListener('keydown', function (e) {
-          if (e.key !== 'Escape') return;
-          document.querySelectorAll('[id].mil-requirements-popup, [id].mil-discount-popup, [data-modal]')
-            .forEach(closeModal);
-        });
+        updateSelectedCleaningLabel();
+        updateAreaUI();
+        calcAndRender();
       })();
       </script>
+    
+    <script type="module">
+      import PocketBase from 'https://unpkg.com/pocketbase@0.21.3/dist/pocketbase.es.mjs';
+      const pb = new PocketBase('https://db.donreparador.com:8090');
       
-      <!-- 1) Teléfono con Cleave: fija prefijo +51 y formato 9 dígitos -->
-      <script>
-        if (input._cleave && typeof input._cleave.destroy === 'function') { input._cleave.destroy(); input._cleave = null; }
-if (input.cleave  && typeof input.cleave.destroy  === 'function') { input.cleave.destroy();  input.cleave  = null; }
-input.oninput = input.onkeydown = input.onfocus = null; // limpia handlers que pudiera haber agregado Cleave
-
-        document.addEventListener('DOMContentLoaded', () => {
-          const PREFIX = '+51 ';
-          const inputs = document.querySelectorAll('.mil-phone-input');
-        
-          const format = (digits) => {
-            digits = (digits || '').replace(/\D/g, '').slice(0, 9); // máx 9 dígitos
-            const parts = [];
-            if (digits.length > 0) parts.push(digits.slice(0, 3));
-            if (digits.length > 3) parts.push(digits.slice(3, 6));
-            if (digits.length > 6) parts.push(digits.slice(6, 9));
-            return PREFIX + parts.join(' ');
-          };
-        
-          inputs.forEach(input => {
-            // valor inicial
-            if (!input.value || !input.value.startsWith(PREFIX)) {
-              input.value = PREFIX;
+      const form   = document.getElementById('signup-form');
+      const btn    = document.getElementById('sg-submit');
+      const status = document.getElementById('sg-status');
+      
+      (function cleanupPlaceholders(){
+        const emailEl = document.getElementById('sg-email');
+        if (emailEl) {
+          if (/^admin(@.*)?$/i.test(emailEl.value.trim()) || emailEl.value.trim() === 'admin') emailEl.value = '';
+          if (!emailEl.placeholder) emailEl.placeholder = 'tucorreo@ejemplo.com';
+        }
+        ['sg-name','sg-dni','sg-phone'].forEach(id=>{
+          const el = document.getElementById(id);
+          if (el && /^(admin|test)$/i.test(el.value.trim())) el.value = '';
+        });
+      })();
+      
+      function setBusy(b){ if(btn){ btn.disabled = b; btn.style.opacity = b ? 0.7 : 1; } }
+      function showMsg(msg, ok=false){ if(status){ status.textContent = msg; status.style.color = ok ? '#2e7d32' : '#b3261e'; } }
+      
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault(); showMsg(''); setBusy(true);
+        try {
+          const name  = document.getElementById('sg-name').value.trim();
+          const email = document.getElementById('sg-email').value.trim().toLowerCase();
+          const phoneRaw = document.getElementById('sg-phone').value.trim();
+          const dni   = document.getElementById('sg-dni').value.trim();
+          const pass  = document.getElementById('sg-pass').value;
+          const pass2 = document.getElementById('sg-pass2').value;
+          const file  = document.getElementById('sg-avatar').files?.[0];
+          const rolw  = (form.querySelector('input[name="rolw"]:checked')?.value || '').toLowerCase();
+      
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Correo inválido.');
+          if (/^admin(@.*)?$/i.test(email)) throw new Error('El correo no puede ser "admin".');
+          if (!/^\d{8}$/.test(dni)) throw new Error('DNI inválido (8 dígitos).');
+          if (pass !== pass2) throw new Error('Las contraseñas no coinciden.');
+          if (!file) throw new Error('Sube una foto.');
+          if (!['client','provider'].includes(rolw)) throw new Error('Selecciona Cliente o Proveedor.');
+          if (file.size > 5 * 1024 * 1024) throw new Error('La foto supera 5MB.');
+      
+          // Normaliza teléfono a E.164
+          let phone = phoneRaw.replace(/[^\d+]/g, '');
+          if (!phone.startsWith('+51')) {
+            const only = phone.replace(/\D/g,'');
+            if (/^\d{9}$/.test(only)) phone = '+51' + only;
+          }
+      
+          const isProvider = rolw === 'provider';
+          const statusVal  = isProvider ? 'false' : 'true';
+      
+          const fd = new FormData();
+          fd.append('email', email);
+          fd.append('emailVisibility', 'true');
+          fd.append('password', pass);
+          fd.append('passwordConfirm', pass2);
+          fd.append('name', name);
+          fd.append('phone', phone);
+          fd.append('dni', dni);
+          fd.append('rolw', rolw);
+          fd.append('type', rolw);
+          fd.append('status', statusVal);
+          fd.append('avatar', file);
+      
+          await pb.collection('users').create(fd);
+          await pb.collection('users').requestVerification(email);
+      
+          showMsg(
+            isProvider
+              ? '¡Cuenta creada como Proveedor! Verifica tu correo. Un admin revisará tu cuenta.'
+              : '¡Cuenta creada! Revisa tu correo para verificarla.',
+            true
+          );
+      
+          setTimeout(() => {
+            form.reset();
+            const phoneEl = document.getElementById('sg-phone');
+            if (phoneEl) phoneEl.value = '+51 ';
+            const modal = document.getElementById('mil-discount-popup');
+            if (modal){
+              modal.style.display = 'none';
+              modal.setAttribute('aria-hidden','true');
+              document.body.classList.remove('mil-modal-open');
             }
-            input.placeholder = '+51 9__ ___ ___';
+          }, 1200);
+      
+        } catch (err) {
+          let nice = err?.message || 'No se pudo crear la cuenta.';
+          const data = err?.data?.data || err?.response?.data?.data;
+          if (data && typeof data==='object'){
+            const details = Object.values(data).map(v=>v?.message).filter(Boolean).join(' · ');
+            if (details) nice = details;
+          }
+          showMsg(nice, false);
+          console.error(err);
+        } finally {
+          setBusy(false);
+        }
+      });
+      </script>
+      
+      <script>
+        (function(){
+          'use strict';
         
-            const moveCaret = () => {
-              // lleva el cursor al final pero nunca antes del prefijo
-              const pos = Math.max(PREFIX.length, input.value.length);
-              input.setSelectionRange(pos, pos);
-            };
+          // === "Solicitar llamada" → WhatsApp ===
+          const callWrap = document.querySelector('.mil-order-call-window');
+          const callForm = callWrap?.querySelector('form');
+          const nameEl   = document.getElementById('user-name-2');
+          const phoneEl  = document.getElementById('user-phone-2');
         
-            // impedir borrar el prefijo y moverse antes de él
-            input.addEventListener('keydown', (e) => {
-              const pos = input.selectionStart ?? 0;
+          if (callForm && nameEl && phoneEl) {
+            callForm.addEventListener('submit', (e) => {
+              e.preventDefault();
         
-              // bloquear backspace/delete dentro del prefijo
-              if ((e.key === 'Backspace' && pos <= PREFIX.length) ||
-                  (e.key === 'Delete' && pos < PREFIX.length)) {
-                e.preventDefault();
-                input.setSelectionRange(PREFIX.length, PREFIX.length);
+              const name = nameEl.value.trim();
+              const phoneRaw = phoneEl.value.trim();
+        
+              if (!name || !phoneRaw) { 
+                // Mensaje simple; si quieres, añade un <small id="ocw-status"> para mostrarlo ahí
+                alert('Por favor ingresa tu nombre y teléfono.');
                 return;
               }
         
-              // sólo permitir dígitos, flechas, tab, home/end
-              if (e.key.length === 1 && !/\d/.test(e.key)) {
-                e.preventDefault();
+              // Normaliza a formato E.164 (+51XXXXXXXXX)
+              let phone = phoneRaw.replace(/[^\d+]/g, '');
+              if (!phone.startsWith('+51')) {
+                const d = phone.replace(/\D/g, '');
+                if (/^\d{9}$/.test(d)) phone = '+51' + d;
               }
         
-              // impedir ir a la izquierda del prefijo
-              if (e.key === 'ArrowLeft' && pos <= PREFIX.length) {
-                e.preventDefault();
-                input.setSelectionRange(PREFIX.length, PREFIX.length);
-              }
-              if (e.key === 'Home') {
-                e.preventDefault();
-                input.setSelectionRange(PREFIX.length, PREFIX.length);
-              }
+              const msg = [
+                '📞 *Solicitar llamada*',
+                `• *Nombre:* ${name}`,
+                `• *Teléfono:* ${phone}`
+              ].join('\n');
+        
+              // Tu número de atención
+              const WAPP_NUMBER = '51984663305';
+              window.open(`https://wa.me/${WAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+        
+              // Cierra el popup
+              callWrap.style.display = 'none';
+              callWrap.setAttribute('aria-hidden','true');
+              document.body.classList.remove('mil-modal-open');
             });
-        
-            // re-formatear tras cada cambio
-            input.addEventListener('input', () => {
-              const digits = input.value.replace(PREFIX, '').replace(/\D/g, '');
-              input.value = format(digits);
-              // recolocar caret al final del texto formateado
-              setTimeout(moveCaret, 0);
-            });
-        
-            // al enfocar/click, pon el cursor después del prefijo
-            input.addEventListener('focus', () => setTimeout(moveCaret, 0));
-            input.addEventListener('click', () => setTimeout(moveCaret, 0));
-          });
-        });
+          }
+        })();
         </script>
         
-        
-  
-  <!-- 2) Registro PocketBase -->
-  <script type="module">
-  import PocketBase from 'https://unpkg.com/pocketbase@0.21.3/dist/pocketbase.es.mjs';
-  const pb = new PocketBase('https://db.donreparador.com:8090');
-  
-  const form   = document.getElementById('signup-form');
-  const btn    = document.getElementById('sg-submit');
-  const status = document.getElementById('sg-status');
-  
-  // Limpia valores de prueba y evita que quede "admin" en el email
-  (() => {
-    const emailEl = document.getElementById('sg-email');
-    if (emailEl) {
-      if (/^admin(@.*)?$/i.test(emailEl.value.trim()) || emailEl.value.trim() === 'admin') {
-        emailEl.value = '';
-      }
-      if (!emailEl.placeholder) emailEl.placeholder = 'tucorreo@ejemplo.com';
-    }
-    // Si quieres limpiar otros campos de pruebas:
-    ['sg-name','sg-dni','sg-phone'].forEach(id=>{
-      const el = document.getElementById(id);
-      if (el && /^(admin|test)$/i.test(el.value.trim())) el.value = '';
-    });
-  })();
-  
-  function setBusy(b){
-    if(!btn) return;
-    btn.disabled = b;
-    btn.style.opacity = b ? 0.7 : 1;
-  }
-  function showMsg(msg, ok=false){
-    if(!status) return;
-    status.textContent = msg;
-    status.style.color = ok ? '#2e7d32' : '#b3261e';
-  }
-  
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault(); showMsg(''); setBusy(true);
-    try {
-      const name  = document.getElementById('sg-name').value.trim();
-      const email = document.getElementById('sg-email').value.trim().toLowerCase();
-      const phoneRaw = document.getElementById('sg-phone').value.trim();
-      const dni   = document.getElementById('sg-dni').value.trim();
-      const pass  = document.getElementById('sg-pass').value;
-      const pass2 = document.getElementById('sg-pass2').value;
-      const file  = document.getElementById('sg-avatar').files?.[0];
-      const rolw  = (form.querySelector('input[name="rolw"]:checked')?.value || '').toLowerCase();
-  
-      // Validaciones
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Correo inválido.');
-      if (/^admin(@.*)?$/i.test(email)) throw new Error('El correo no puede ser "admin".');
-      if (!/^\d{8}$/.test(dni)) throw new Error('DNI inválido (8 dígitos).');
-      if (pass !== pass2) throw new Error('Las contraseñas no coinciden.');
-      if (!file) throw new Error('Sube una foto.');
-      if (!['client','provider'].includes(rolw)) throw new Error('Selecciona Cliente o Proveedor.');
-      if (file.size > 5 * 1024 * 1024) throw new Error('La foto supera 5MB.');
-  
-      // Normaliza teléfono a E.164 (+51xxxxxxxxx)
-      let phone = phoneRaw.replace(/[^\d+]/g, '');
-      if (!phone.startsWith('+51')) {
-        const onlyDigits = phone.replace(/\D/g,'');
-        if (/^\d{9}$/.test(onlyDigits)) phone = '+51' + onlyDigits;
-      }
-
-  
-      // Si es proveedor -> status=false (pendiente de revisión)
-      const isProvider = rolw === 'provider';
-      const statusVal  = isProvider ? 'false' : 'true';
-  
-      const fd = new FormData();
-      fd.append('email', email);
-      fd.append('emailVisibility', 'true');
-      fd.append('password', pass);
-      fd.append('passwordConfirm', pass2);
-      fd.append('name', name);
-      fd.append('phone', phone);
-      fd.append('dni', dni);
-      fd.append('rolw', rolw);        // 'client' | 'provider'
-      fd.append('type', rolw);        // si también usas 'type' en tu schema
-      fd.append('status', statusVal); // 'false' si provider
-      fd.append('avatar', file);
-  
-      const record = await pb.collection('users').create(fd);
-      await pb.collection('users').requestVerification(email);
-  
-      showMsg(
-        isProvider
-          ? '¡Cuenta creada como Proveedor! Verifica tu correo. Un admin revisará tu cuenta.'
-          : '¡Cuenta creada! Revisa tu correo para verificarla.',
-        true
-      );
-  
-      setTimeout(() => {
-        form.reset();
-        // vuelve a colocar el prefijo del teléfono luego del reset
-        const phoneEl = document.getElementById('sg-phone');
-        if (phoneEl) phoneEl.value = '+51 ';
-        const modal = document.getElementById('mil-discount-popup');
-        if (modal){
-          modal.style.display = 'none';
-          modal.setAttribute('aria-hidden','true');
-          document.body.classList.remove('mil-modal-open');
-        }
-      }, 1200);
-  
-    } catch (err) {
-      let nice = err?.message || 'No se pudo crear la cuenta.';
-      const data = err?.data?.data || err?.response?.data?.data;
-      if (data && typeof data==='object'){
-        const details = Object.values(data).map(v=>v?.message).filter(Boolean).join(' · ');
-        if (details) nice = details;
-      }
-      showMsg(nice, false);
-      console.error(err);
-    } finally {
-      setBusy(false);
-    }
-  });
-  </script>
-  
-      
         
         
 </body>
