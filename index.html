@@ -2107,11 +2107,60 @@
     <script type="module">
       import PocketBase from 'https://unpkg.com/pocketbase@0.21.3/dist/pocketbase.es.mjs';
       const pb = new PocketBase('https://db.donreparador.com:8090');
-      
+    
       const form   = document.getElementById('signup-form');
       const btn    = document.getElementById('sg-submit');
       const status = document.getElementById('sg-status');
-      
+    
+      /* ====== BREVO (tu API) ====== */
+      const BREVO_API = 'https://db.donreparador.com:5542';
+      const BREVO_TIMEOUT_MS = 10000;
+      const TEMPLATE = { client: 1, provider: 2, admin: 3 }; // iguales a tu servicio Angular
+    
+      function postBrevo(path, body) {
+        const controller = new AbortController();
+        const t = setTimeout(() => controller.abort(), BREVO_TIMEOUT_MS);
+        return fetch(`${BREVO_API}${path}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // 'x-api-key': 'TU_TOKEN_OPCIONAL',
+          },
+          body: JSON.stringify(body),
+          signal: controller.signal,
+        }).finally(() => clearTimeout(t));
+      }
+    
+      async function sendBrevoWelcome({ email, name, rolw, phone }) {
+        const params = {
+          name,
+          role: rolw === 'provider' ? 'Proveedor' : 'Cliente',
+          app_url: 'https://app.donreparador.com/',
+        };
+    
+        // 1) Bienvenida (cliente/proveedor)
+        const isProvider = rolw === 'provider';
+        const path = isProvider ? '/bienvenidaexperto' : '/bienvenidacliente';
+        await postBrevo(path, {
+          toEmail: email,
+          toName: name,
+          templateId: isProvider ? TEMPLATE.provider : TEMPLATE.client,
+          params,
+        });
+    
+        // 2) Aviso al admin si es proveedor (no bloquea la UX)
+        if (isProvider) {
+          const created = new Date().toISOString();
+          postBrevo('/nuevoregistroadministrador', {
+            toEmail: 'donreparador.com@gmail.com',
+            toName: 'Equipo',
+            templateId: TEMPLATE.admin,
+            params: { name, email, type: 'provider', created, phone },
+          }).catch((e) => console.warn('Aviso admin falló:', e));
+        }
+      }
+      /* ====== /BREVO ====== */
+    
       (function cleanupPlaceholders(){
         const emailEl = document.getElementById('sg-email');
         if (emailEl) {
@@ -2123,10 +2172,10 @@
           if (el && /^(admin|test)$/i.test(el.value.trim())) el.value = '';
         });
       })();
-      
+    
       function setBusy(b){ if(btn){ btn.disabled = b; btn.style.opacity = b ? 0.7 : 1; } }
       function showMsg(msg, ok=false){ if(status){ status.textContent = msg; status.style.color = ok ? '#2e7d32' : '#b3261e'; } }
-      
+    
       form?.addEventListener('submit', async (e) => {
         e.preventDefault(); showMsg(''); setBusy(true);
         try {
@@ -2138,7 +2187,7 @@
           const pass2 = document.getElementById('sg-pass2').value;
           const file  = document.getElementById('sg-avatar').files?.[0];
           const rolw  = (form.querySelector('input[name="rolw"]:checked')?.value || '').toLowerCase();
-      
+    
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Correo inválido.');
           if (/^admin(@.*)?$/i.test(email)) throw new Error('El correo no puede ser "admin".');
           if (!/^\d{8}$/.test(dni)) throw new Error('DNI inválido (8 dígitos).');
@@ -2146,17 +2195,20 @@
           if (!file) throw new Error('Sube una foto.');
           if (!['client','provider'].includes(rolw)) throw new Error('Selecciona Cliente o Proveedor.');
           if (file.size > 5 * 1024 * 1024) throw new Error('La foto supera 5MB.');
-      
-          // Normaliza teléfono a E.164
+    
+          // Normaliza teléfono a +51 9XXXXXXXX
           let phone = phoneRaw.replace(/[^\d+]/g, '');
           if (!phone.startsWith('+51')) {
             const only = phone.replace(/\D/g,'');
             if (/^\d{9}$/.test(only)) phone = '+51' + only;
           }
-      
+          // (opcional) valida que tenga 9 dígitos peruanos
+          const digits = phone.replace(/\D/g,'');
+          if (!/^51\d{9}$/.test(digits)) throw new Error('Teléfono inválido (+51 y 9 dígitos).');
+    
           const isProvider = rolw === 'provider';
           const statusVal  = isProvider ? 'false' : 'true';
-      
+    
           const fd = new FormData();
           fd.append('email', email);
           fd.append('emailVisibility', 'true');
@@ -2169,17 +2221,28 @@
           fd.append('type', rolw);
           fd.append('status', statusVal);
           fd.append('avatar', file);
-      
+    
+          // 1) Crear usuario en PocketBase
           await pb.collection('users').create(fd);
+    
+          // 2) Enviar correo de verificación nativo de PB
           await pb.collection('users').requestVerification(email);
-      
+    
+          // 3) Enviar bienvenida por Brevo (y aviso admin si proveedor)
+          try {
+            await sendBrevoWelcome({ email, name, rolw, phone });
+          } catch (mailErr) {
+            console.warn('Brevo falló:', mailErr);
+            // No bloquea el registro: solo informativo para el usuario
+          }
+    
           showMsg(
             isProvider
               ? '¡Cuenta creada como Proveedor! Verifica tu correo. Un admin revisará tu cuenta.'
               : '¡Cuenta creada! Revisa tu correo para verificarla.',
             true
           );
-      
+    
           setTimeout(() => {
             form.reset();
             const phoneEl = document.getElementById('sg-phone');
@@ -2191,7 +2254,7 @@
               document.body.classList.remove('mil-modal-open');
             }
           }, 1200);
-      
+    
         } catch (err) {
           let nice = err?.message || 'No se pudo crear la cuenta.';
           const data = err?.data?.data || err?.response?.data?.data;
@@ -2205,7 +2268,8 @@
           setBusy(false);
         }
       });
-      </script>
+    </script>
+    
       
       <script>
         (function(){
