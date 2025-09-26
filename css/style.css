@@ -5782,4 +5782,37 @@ pagination
 
 body.mil-modal-open{ overflow: hidden; }
 
+#services-grid .mil-up { opacity: 1 !important; transform: none !important; }
+/* Forzar modal por encima del overlay del tema */
+#request-modal {
+  position: fixed;
+  inset: 0;
+  display: none;               /* se muestra con drOpenModal */
+  align-items: center;
+  justify-content: center;
+  background: rgba(17,17,17,.55);
+  backdrop-filter: blur(2px);
+  z-index: 10020;              /* alto */
+}
+#request-modal .mil-modal-dialog {
+  position: relative;
+  max-width: 720px;
+  width: min(720px, 92vw);
+  background: var(--m-4, #fff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  z-index: 10021;
+}
+#request-modal .mil-modal-close {
+  position: absolute; top: 8px; right: 10px; z-index: 10022;
+}
+
+/* Si tu tema añade un overlay global cuando el body tiene .mil-modal-open,
+   desactívalo para que no tape el contenido del modal */
+body.mil-modal-open::before {
+  content: none !important;
+}
+
+
   
