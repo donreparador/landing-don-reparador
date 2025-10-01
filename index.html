@@ -165,16 +165,16 @@
               </div>
           
               <div class="mil-envelope-body mil-tac mil-br-lg">
-                <h4 class="mil-fs-36 mil-mb-60">🎉 ¡Bienvenido a Don Reparador!</h4>
+                <h4 class="mil-fs-36 mil-mb-60">🎉 ¡Bienvenido a Don Reparador! Registrate como experto</h4>
                 <form id="signup-form" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-12 mil-mb-10" style="padding-bottom: 10px;">
                       <label class="mil-fs-16 mil-fw-600 mil-m-1">Tipo de usuario</label>
                       <div class="mil-aic" role="radiogroup" aria-label="Tipo de usuario">
-                        <label class="mil-custom-radio mil-mr-30">
+                      <!--   <label class="mil-custom-radio mil-mr-30">
                           <input type="radio" name="rolw" value="client" required>
                           <span class="mil-radio-checkmark"></span> Cliente
-                        </label>
+                        </label> -->
                         <label class="mil-custom-radio">
                           <input type="radio" name="rolw" value="provider" required>
                           <span class="mil-radio-checkmark"></span> Proveedor
@@ -291,7 +291,6 @@
                           <option>Limpieza y orden</option>
                           <option>Fachada y entrada</option>
                           <option>Sistemas y equipos</option>
-                          <option>Incidencias, SLA y reportes</option>
                           <!-- agrega más si deseas -->
                         </select>
                         <i class="far fa-tools mil-a-2"></i>
@@ -587,14 +586,13 @@
 
             <div class="mil-p-0-15" id="services">
                 <div class="container">
-                <div class="mil-section-title mil-mb-f mil-up">
+                  <div class="mil-section-title mil-mb-f mil-up">
                     <h2 class="mil-fs-36">Servicios para tu hogar y empresa</h2>
                     <div class="mil-dots"></div>
                     <b class="mil-fs-24">01</b>
-                </div>
-                <!-- CONTENEDOR EXISTENTE -->
-                <div class="row mil-grid-compact" id="services-grid"></div>
-
+                  </div>
+                  <!-- CONTENEDOR EXISTENTE -->
+                  <div class="row mil-grid-compact" id="services-grid"></div>
                   <!-- Plantilla de tarjeta (oculta) -->
                   <template id="tpl-card">
                     <div class="col-sm-6 col-md-4 col-xl-3 mil-mb-15 mil-up">
@@ -609,173 +607,137 @@
                       </article>
                     </div>
                   </template>
-                  
-
                   <!-- Modal básico para la solicitud -->
-                <div id="request-modal" class="mil-requirements-popup" aria-hidden="true" hidden>
-                    <div class="mil-popup-window" role="dialog" aria-modal="true" aria-labelledby="req-title">
-    <!-- Top bar -->
-    <div class="mil-envelope-top">
-      <button class="mil-close-popup" aria-label="Cerrar" style="all:unset; cursor:pointer;">
-        <i class="fal fa-times"></i>
-      </button>
-      <h3 id="req-title" class="mil-fs-28" style="margin:20px">Solicitar servicio</h3>
-    </div>
-
-    <!-- Body -->
-    <div class="mil-envelope-body mil-br-lg" style="padding:24px">
-      <p id="req-subtitle" class="mil-opacity-7 mil-mb-15"></p>
-
-      <form id="request-form" novalidate enctype="multipart/form-data">
-        <input type="hidden" name="categoryId">
-
-        <div class="row">
-          <!-- Servicio específico -->
-          <div class="col-12 mil-mb-15">
-            <label class="mil-fs-16 mil-fw-600 mil-m-1">Servicio específico</label>
-            <div class="mil-input-frame">
-              <select name="subcategoryId" id="req-sub" class="mil-br-md mil-bg-m-3" required>
-                <option value="">Selecciona…</option>
-              </select>
-              <i class="far fa-tools mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Nombre -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="text" name="name" placeholder="Nombre y apellidos" class="mil-br-md mil-bg-m-3" autocomplete="name" required>
-              <i class="far fa-user mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Teléfono -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="tel" name="phone" class="mil-phone-input mil-br-md mil-bg-m-3" data-native-mask="1" placeholder="+51 9XX XXX XXX" autocomplete="tel" required>
-              <i class="far fa-mobile mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="email" name="email" placeholder="Correo (opcional)" class="mil-br-md mil-bg-m-3" autocomplete="email">
-              <i class="far fa-at mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Dirección -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="text" name="address" placeholder="Dirección (calle, número, referencia)" class="mil-br-md mil-bg-m-3" autocomplete="address-line1" required>
-              <i class="far fa-location-arrow mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Fecha/Hora -->
-          <div class="col-sm-6 mil-mb-15">
-            <label class="mil-fs-16 mil-fw-600 mil-m-1">Fecha y hora</label>
-            <div class="mil-input-frame">
-              <input type="datetime-local" name="scheduleAt" class="mil-br-md mil-bg-m-3" required>
-              <i class="far fa-calendar mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Urgente -->
-          <!-- <div class="col-sm-6 mil-mb-15">
-            <label class="mil-custom-checkbox mil-m-1 mil-fw-600" style="display:inline-flex; align-items:center; height:48px;">
-              <input type="checkbox" name="urgent" value="Sí">
-              <span class="mil-checkbox-checkmark"></span>
-              ¿Es urgente?
-            </label>
-          </div> -->
-          <!-- Password -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="password" name="password" placeholder="Contraseña" class="mil-br-md mil-bg-m-3" required>
-              <i class="far fa-lock mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Confirmar Password -->
-          <div class="col-sm-6 mil-mb-15">
-            <div class="mil-input-frame">
-              <input type="password" name="passwordConfirm" placeholder="Repite la contraseña" class="mil-br-md mil-bg-m-3" required>
-              <i class="far fa-lock-alt mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Detalle -->
-          <div class="col-12 mil-mb-15">
-            <div class="mil-input-frame">
-              <textarea name="notes" rows="4" class="mil-br-md mil-bg-m-3" placeholder="Describe el problema, tamaños, marcas, cantidad de puntos, etc." required></textarea>
-              <i class="far fa-align-left mil-a-2"></i>
-            </div>
-          </div>
-
-          <!-- Fotos (opcional) -->
-          <div class="col-12 mil-mb-10">
-            <div class="mil-input-frame">
-              <input type="file" name="photos" accept="image/*" class="mil-br-md mil-bg-m-3" multiple>
-              <i class="far fa-image mil-a-2"></i>
-            </div>
-            <small class="mil-opacity-7">Puedes adjuntar fotos (opcional).</small>
-          </div>
-
-          <!-- CTA -->
-          <div class="col-lg-12 mil-aic mil-mt-10" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <p class="mil-fs-14 mil-m-2 mil-tal" style="margin:0;">
-              Al enviar aceptas nuestros Términos y Política de Privacidad.
-            </p>
-            <button id="btn-send" class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale" type="submit">
-              Confirmar solicitud<i class="far fa-paper-plane mil-bg-m-1 mil-a-1"></i>
-            </button>
-          </div>
-
-          <div class="col-12 mil-mt-15">
-            <div id="req-status" class="mil-fs-16" style="min-height:24px;"></div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-                </div>
-
-
-                <!-- <div class="mil-up mil-center mil-mt-30">
-                    <a href="https://app.donreparador.com/"
-                    target="_blank" rel="noopener" data-no-swup class="mil-link">Ver todos los servicios<i class="far fa-arrow-right mil-bg-a-1 mil-m-1" style="padding:.2rem 0 0 .2rem"></i></a>
-                </div> -->
-            
-                <!-- CTA especialistas con gamificación -->
-                <!-- <div class="mil-section-title mil-mt-f mil-up" style="text-align:center;">
-                    <h2 class="mil-fs-28">¿Eres especialista?</h2>
-                    <p class="mil-fs-18 mil-opacity-7">Recibe más clientes según tu reputación. Gana puntos, sube de nivel y desbloquea beneficios.</p>
-                    <a  class="mil-btn mil-icon-btn mil-bg-a-1 mil-br-xl mil-hover-bri-105 mil-hover-scale" href="#join-experts">
-                    Trabaja con nosotros <i class="far fa-star mil-bg-m-4 mil-m-1"></i>
-                    </a>
-                </div> -->
-                </div>
-                    <!--   <div class="col-lg-12 col-xxl-12 mil-mb-15" href="#mil-discount-popup" data-popup-target="#mil-discount-popup" data-no-swup>
-                  <div class="mil-cta mil-br-lg mil-bg-a-1 mil-aicb mil-up">
-                      <div class="row mil-jcb">
-                      <div class="col-lg-6 mil-mb-30">
-                          <h5 class="mil-fs-32 mil-m-1">¿Eres profesional? TRABAJA CON NOSOTROS </h5>
-                          <p class="mil-fs-18 mil-opacity-7" style="font-size: 15px; color: black;">Recibe más clientes según tu reputación. Gana puntos, sube de nivel y desbloquea beneficios.</p>
+                  <div id="request-modal" class="mil-requirements-popup" aria-hidden="true" hidden>
+                      <div class="mil-popup-window" role="dialog" aria-modal="true" aria-labelledby="req-title">
+                        <!-- Top bar -->
+                        <div class="mil-envelope-top">
+                          <button class="mil-close-popup" aria-label="Cerrar" style="all:unset; cursor:pointer; padding: 10px;">
+                            <i class="fal fa-times"></i>
+                          </button>
+                          <h3 id="req-title" class="mil-fs-28" style="margin:20px">Solicitar servicio</h3>
                         </div>
-                      <div class="col-lg-6 mil-jce mil-md-jcs mil-mb-30">
-                        <a href="#mil-discount-popup"
-                           class="mil-btn mil-icon-btn mil-bg-m-1 mil-m-4 mil-br-xl mil-hover-bri-105 mil-hover-scale"
-                           data-no-swup
-                           data-popup-target="#mil-discount-popup">
-                          Crear cuenta gratis
-                          <i class="far fa-arrow-right mil-bg-a-1 mil-m-1"></i>
-                        </a>
-                      </div>                           
+
+                        <!-- Body -->
+                        <div class="mil-envelope-body mil-br-lg" style="padding:24px">
+                          <p id="req-subtitle" class="mil-opacity-7 mil-mb-15"></p>
+
+                          <form id="request-form" novalidate enctype="multipart/form-data">
+                            <input type="hidden" name="categoryId">
+
+                            <div class="row">
+                              <!-- Servicio específico -->
+                              <div class="col-12 mil-mb-15">
+                                <label class="mil-fs-16 mil-fw-600 mil-m-1">Servicio específico</label>
+                                <div class="mil-input-frame">
+                                  <select name="subcategoryId" id="req-sub" class="mil-br-md mil-bg-m-3" required>
+                                    <option value="">Selecciona…</option>
+                                  </select>
+                                  <i class="far fa-tools mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Nombre -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="text" name="name" placeholder="Nombre y apellidos" class="mil-br-md mil-bg-m-3" autocomplete="name" required>
+                                  <i class="far fa-user mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Teléfono -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="tel" name="phone" class="mil-phone-input mil-br-md mil-bg-m-3" data-native-mask="1" placeholder="+51 9XX XXX XXX" autocomplete="tel" required>
+                                  <i class="far fa-mobile mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Email -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="email" name="email" placeholder="Correo (opcional)" class="mil-br-md mil-bg-m-3" autocomplete="email">
+                                  <i class="far fa-at mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Dirección -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="text" name="address" placeholder="Dirección (calle, número, referencia)" class="mil-br-md mil-bg-m-3" autocomplete="address-line1" required>
+                                  <i class="far fa-location-arrow mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Fecha/Hora -->
+                              <!-- <div class="col-sm-6 mil-mb-15">
+                                <label class="mil-fs-16 mil-fw-600 mil-m-1">Fecha y hora</label>
+                                <div class="mil-input-frame">
+                                  <input type="datetime-local" name="scheduleAt" class="mil-br-md mil-bg-m-3" required>
+                                  <i class="far fa-calendar mil-a-2"></i>
+                                </div>
+                              </div> -->
+
+                              <!-- Urgente -->
+                              <!-- <div class="col-sm-6 mil-mb-15">
+                                <label class="mil-custom-checkbox mil-m-1 mil-fw-600" style="display:inline-flex; align-items:center; height:48px;">
+                                  <input type="checkbox" name="urgent" value="Sí">
+                                  <span class="mil-checkbox-checkmark"></span>
+                                  ¿Es urgente?
+                                </label>
+                              </div> -->
+                              <!-- Password -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="password" name="password" placeholder="Contraseña" class="mil-br-md mil-bg-m-3" required>
+                                  <i class="far fa-lock mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Confirmar Password -->
+                              <div class="col-sm-6 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <input type="password" name="passwordConfirm" placeholder="Repite la contraseña" class="mil-br-md mil-bg-m-3" required>
+                                  <i class="far fa-lock-alt mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Detalle -->
+                              <div class="col-12 mil-mb-15">
+                                <div class="mil-input-frame">
+                                  <textarea name="notes" rows="4" class="mil-br-md mil-bg-m-3" placeholder="Describe el problema, tamaños, marcas, cantidad de puntos, etc." required></textarea>
+                                  <i class="far fa-align-left mil-a-2"></i>
+                                </div>
+                              </div>
+
+                              <!-- Fotos (opcional) -->
+                              <div class="col-12 mil-mb-10">
+                                <div class="mil-input-frame">
+                                  <input type="file" name="photos" accept="image/*" class="mil-br-md mil-bg-m-3" multiple>
+                                  <i class="far fa-image mil-a-2"></i>
+                                </div>
+                                <small class="mil-opacity-7">Puedes adjuntar fotos (opcional).</small>
+                              </div>
+
+                              <!-- CTA -->
+                              <div class="col-lg-12 mil-aic mil-mt-10" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                <p class="mil-fs-14 mil-m-2 mil-tal" style="margin:0;">
+                                  Al enviar aceptas nuestros Términos y Política de Privacidad.
+                                </p>
+                                <button id="btn-send" class="mil-btn mil-bg-a-1 mil-icon-btn mil-br-xl mil-hover-bri-105 mil-hover-scale" type="submit">
+                                  Confirmar solicitud<i class="far fa-paper-plane mil-bg-m-1 mil-a-1"></i>
+                                </button>
+                              </div>
+
+                              <div class="col-12 mil-mt-15">
+                                <div id="req-status" class="mil-fs-16" style="min-height:24px;"></div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                   </div>
-                  </div> -->
+                </div>
             </div>  
             <!-- services end -->
             <!-- ¿Cómo funciona? -->
@@ -969,7 +931,7 @@
               
                   <div class="row">
                     <!-- 1. Limpieza y orden -->
-                    <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
+                    <div class="col-sm-6 col-xl-4 mil-mb-15 mil-up">
                       <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
@@ -983,7 +945,6 @@
                             <ul class="mil-check-list mil-mb-40">
                               <li>Limpieza de pisos y superficies</li>
                               <li>Desinfección de puntos de contacto</li>
-                              <li>Gestión responsable de residuos</li>
                               <li>Zonas de alto tránsito impecables</li>
                               <li>Checklist y control de calidad</li>
                             </ul>
@@ -1001,7 +962,7 @@
                     </div>
               
                     <!-- 2. Fachada y entrada -->
-                    <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
+                    <div class="col-sm-6 col-xl-4 mil-mb-15 mil-up">
                       <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
@@ -1033,7 +994,7 @@
                     </div>
               
                     <!-- 3. Sistemas y equipos -->
-                    <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
+                    <div class="col-sm-6 col-xl-4 mil-mb-15 mil-up">
                       <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
@@ -1046,8 +1007,8 @@
                           <div class="col-sm-12">
                             <ul class="mil-check-list mil-mb-40">
                               <li>Eléctrico e iluminación</li>
-                              <li>Climatización (HVAC)</li>
-                              <li>Seguridad y CCTV</li>
+                              <li>Aire acondicionado</li>
+                              <li>Cámaras de seguridad</li>
                               <li>Inspecciones periódicas</li>
                               <li>Reemplazos programados</li>
                             </ul>
@@ -1066,7 +1027,7 @@
                     </div>
               
                     <!-- 4. Incidencias, SLA y reportes -->
-                    <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
+                    <!-- <div class="col-sm-6 col-xl-3 mil-mb-15 mil-up">
                       <article class="mil-service-card mil-bg-m-4 mil-br-md">
                         <div class="row">
                           <div class="col-sm-7 mil-column mil-jcb">
@@ -1085,18 +1046,11 @@
                               <li>Facturación unificada</li>
                             </ul>
                             <div class="mil-dots mil-mb-30"></div>
-                           <!--  <div>
-                              <button class="mil-btn mil-sm mil-bg-m-3 mil-br-xl mil-hover-bri-105 mil-hover-scale mil-open-service-request"
-                              data-popup-target="#service-request-popup"
-                              data-category="Incidencias, SLA y reportes"
-                              data-no-swup>
-                              Solicitar
-                            </button>                          
-                              </div> -->
+                          
                           </div>
                         </div>
                       </article>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -1382,7 +1336,7 @@
                         <div class="mil-panel">
                           <p class="mil-lh-160 mil-fs-18">
                             Sí, para categorías como <b>electricidad</b> y <b>plomería</b> según disponibilidad en tu zona. Indícalo como
-                            <b>urgente</b> al crear la solicitud para priorizarla.
+                            <b>urgente</b> al crear la solicitud para priorizarla. PROXIMAMENTE
                           </p>
                         </div>
                       </div>
@@ -1541,9 +1495,9 @@
                       <div class="col-lg-4 col-md-6 col-sm-6 mil-mb-60">
                         <h5 class="mil-fs-22 mil-fw-600 mil-m-3 mil-mb-20 mil-up">Contáctanos</h5>
                         <p class="mil-mb-10 mil-up"><a href="mailto:contacto@donreparador.com" class="mil-text-link">contacto@donreparador.com</a></p>
-                        <p class="mil-mb-10 mil-up"><a href="tel:+984663305" class="mil-text-link">+51 900 955 191</a></p>
+                        <p class="mil-mb-10 mil-up"><a href="tel:+51984663305" class="mil-text-link">+51 984 663 305</a></p>
                         <p class="mil-mb-20 mil-up"><a href="https://wa.me/984663305" target="_blank" rel="noopener" class="mil-text-link">WhatsApp</a> · Lun–Dom 8:00–20:00</p>
-                        <p class="mil-mb-20 mil-up" style="opacity:.8">Cobertura: Lima y alrededores</p>
+                        <p class="mil-mb-20 mil-up" style="opacity:.8">Cobertura: Todo Peru</p>
               
                         <ul class="mil-aic mil-up">
                           <li class="mil-mr-15 mil-fs-20 mil-m-3">

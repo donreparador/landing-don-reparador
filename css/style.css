@@ -4468,7 +4468,7 @@ discount popup
     padding: 1.5rem 0;
   }
   .mil-discount-popup .mil-popup-window .mil-envelope-top .mil-close-popup {
-    top: -2.5rem;
+    top: 1.5rem;
   }
   .mil-discount-popup .mil-popup-window .mil-envelope-top svg {
     display: none;
