@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     ------------------------------------------- */
 
-    const initPreloader = () => {
+    /* const initPreloader = () => {
         let preloaderPercent = document.querySelector('.mil-percent');
         let preloaderLine = document.querySelector('.mil-preload-line');
         let preloader = document.querySelector('.mil-preloader-frame');
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let preloaderInterval = setInterval(updatePreloader, 100);
-    };
+    }; */
 
     // Додаємо затримку в пів секунди перед запуском initPreloader
-    setTimeout(initPreloader, 500);
-    /* -------------------------------------------
+/*     setTimeout(initPreloader, 500);
+ */    /* -------------------------------------------
     
     page transitions
     

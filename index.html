@@ -609,10 +609,10 @@
                   </template>
                   <!-- Modal básico para la solicitud -->
                   <div id="request-modal" class="mil-requirements-popup" aria-hidden="true" hidden>
-                      <div class="mil-popup-window" role="dialog" aria-modal="true" aria-labelledby="req-title">
+                      <div class="mil-popup-window" role="dialog" aria-modal="true" aria-labelledby="req-title" style="    background: #fff;">
                         <!-- Top bar -->
                         <div class="mil-envelope-top">
-                          <button class="mil-close-popup" aria-label="Cerrar" style="all:unset; cursor:pointer; padding: 10px;">
+                          <button class="mil-close-popup" aria-label="Cerrar" style="all:unset; cursor:pointer;     padding: 10px;">
                             <i class="fal fa-times"></i>
                           </button>
                           <h3 id="req-title" class="mil-fs-28" style="margin:20px">Solicitar servicio</h3>
@@ -2113,117 +2113,7 @@ const phoneEl  = document.getElementById('user-phone-2');
   })();
   </script> 
 <!-- solicitud de servicio y registro cliente -->
-<!-- <script type="module">
-  (function(){
-    if (window.__requestFlowInit) return; window.__requestFlowInit = true;
-  
-    const pb = window?.donrep?.pbClient;
-    const form = document.getElementById('request-form');
-    const statusEl = document.getElementById('req-status');
-    const isPBId = v => typeof v==='string' && /^[a-z0-9]{15}$/.test(v);
-  
-    if (!pb || !form) {
-      console.error('[DR] Falta pb o #request-form');
-      return;
-    }
-  
-    async function ensureClientLoginOrCreate({ email, password, name, phone }) {
-      // 1) intenta login
-      try {
-        const auth = await pb.collection('users').authWithPassword(email, password);
-        return auth?.record?.id;
-      } catch (_) {
-        // 2) si falla, crea usuario (rol client) y vuelve a loguear
-        const fd = new FormData();
-        fd.append('email', email);
-        fd.append('emailVisibility', 'true');
-        fd.append('password', password);
-        fd.append('passwordConfirm', password);
-        fd.append('name', name);
-        fd.append('phone', phone);
-        fd.append('rolw', 'client');
-        fd.append('type', 'client');
-        fd.append('status', 'true');   // cliente activo desde inicio (ajústalo si quieres verificación primero)
-  
-        await pb.collection('users').create(fd);
-  
-        // opcional: pedir verificación
-        // await pb.collection('users').requestVerification(email);
-  
-        const auth = await pb.collection('users').authWithPassword(email, password);
-        return auth?.record?.id;
-      }
-    }
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-  
-      statusEl && (statusEl.textContent = 'Enviando solicitud…');
-  
-      try {
-        const fd = new FormData(form);
-  
-        // Campos UI
-        const name   = (fd.get('name')||'').toString().trim();
-        const phone  = (fd.get('phone')||'').toString().trim();
-        const email  = (fd.get('email')||'').toString().trim().toLowerCase();
-        const pass   = (fd.get('password')||'').toString();
-        const pass2  = (fd.get('passwordConfirm')||'').toString();
-        const notes  = (fd.get('notes')||'').toString().trim();
-  
-        // Relaciones service_order
-        const categoryId = (fd.get('categoryId')||'').toString().trim();
-        const subId      = (fd.get('subcategoryId') || '').toString().trim(); // ← texto directo
-        // Validaciones mínimas
-        if (!categoryId) throw new Error('Selecciona una categoría.');
-        if (!name || !phone || !email) throw new Error('Completa nombre, teléfono y correo.');
-        if (!pass || !pass2 || pass !== pass2) throw new Error('Las contraseñas no coinciden.');
-        if (!notes) throw new Error('Describe brevemente el servicio.');
-  
-        // Login o creación del cliente
-        const userId = await ensureClientLoginOrCreate({ email, password: pass, name, phone });
-        if (!userId) throw new Error('No se pudo autenticar/crear al cliente.');
-  
-        // Construye payload ONLY con campos que existen en service_order
-        const payload = {
-          nota: notes,                 // aquí solo la descripción del servicio
-          idUser: userId,
-          idCategories: categoryId,
-          idSubcategies: subId,        // null si no tienes colección subcategorías
-          monto: null,
-          idExperto: null,
-          status: 'started',
-          lat: null,
-          lng: null,
-          scheduleAt: fd.get('scheduleAt')
-          ? new Date(fd.get('scheduleAt')).toISOString()
-          : null
-          
-        };
-  
-        const rec = await pb.collection('service_order').create(payload);
-        console.log('[DR] service_order creado:', rec);
-  
-        statusEl && (statusEl.textContent = '¡Solicitud creada! Te contactaremos pronto.');
-        setTimeout(()=>{
-          if (window.drCloseModal) drCloseModal(document.getElementById('request-modal'));
-          form.reset();
-        }, 900);
-  
-      } catch (err) {
-        console.error('[DR] flujo solicitud', err, err?.data);
-        let nice = err?.message || 'No se pudo completar la solicitud.';
-        const data = err?.data?.data || err?.response?.data?.data;
-        if (data && typeof data==='object'){
-          const details = Object.entries(data).map(([k,v]) => `${k}: ${v?.message}`).join(' · ');
-          if (details) nice = details;
-        }
-        statusEl && (statusEl.textContent = nice);
-      }
-    });
-  })();
-  </script> -->
-  
+
   <script type="module">
     /* ====== Refs y helpers ====== */
     const pb = window?.donrep?.pbClient;
@@ -2272,8 +2162,8 @@ const phoneEl  = document.getElementById('user-phone-2');
     }
     
     // Notificaciones por nueva solicitud
-    async function sendBrevoServiceRequestEmails({ email, name, categoryName, subcategoryName, scheduleAt, address, phone, notes }) {
-      const params = { name, email, phone, address, category: categoryName || '', subcategory: subcategoryName || '', scheduleAt, notes, app_url:'https://app.donreparador.com/' };
+    async function sendBrevoServiceRequestEmails({ email, name, categoryName, subcategoryName, address, phone, notes }) {
+      const params = { name, email, phone, address, category: categoryName || '', subcategory: subcategoryName || '', notes, app_url:'https://app.donreparador.com/' };
       // al cliente
       postBrevo('/nuevasolicitudcliente', { toEmail: email || 'donreparador.com@gmail.com', toName: name || 'Cliente', templateId: 10, params }).catch(e=>console.warn(e));
       // al admin
@@ -2305,8 +2195,8 @@ const phoneEl  = document.getElementById('user-phone-2');
           const address         = (fd.get('address') || '').toString().trim();
           const notes           = (fd.get('notes') || '').toString().trim();
           const urgent          = !!fd.get('urgent');
-          const scheduleLocal   = (fd.get('scheduleAt') || '').toString().trim();
-          const scheduleAt      = scheduleLocal ? new Date(scheduleLocal).toISOString() : null;
+         /*  const scheduleLocal   = (fd.get('scheduleAt') || '').toString().trim(); */
+         /*  const scheduleAt      = scheduleLocal ? new Date(scheduleLocal).toISOString() : null; */
     
           // Datos de registro (solo si NO hay sesión)
           const pass            = (fd.get('password') || '').toString();
@@ -2315,8 +2205,8 @@ const phoneEl  = document.getElementById('user-phone-2');
           // Validaciones mínimas
           if (!categoryId)        throw new Error('Selecciona una categoría.');
           if (!subcategoryName)   throw new Error('Selecciona el servicio específico.');
-          if (!name || !phone || !address || !scheduleAt || !notes) {
-            throw new Error('Completa nombre, teléfono, dirección, fecha/hora y descripción.');
+          if (!name || !phone || !address  || !notes) {
+            throw new Error('Completa nombre, teléfono, dirección, y descripción.');
           }
     
           let userId = pb?.authStore?.model?.id || null;
@@ -2360,7 +2250,7 @@ const phoneEl  = document.getElementById('user-phone-2');
             status: 'started', // valores válidos
             lat: null,
             lng: null,
-            scheduleAt,
+            /* scheduleAt, */
             address,
             phone,
             email,
@@ -2376,7 +2266,7 @@ const phoneEl  = document.getElementById('user-phone-2');
             email, name,
             categoryName: catLabel,
             subcategoryName,
-            scheduleAt: scheduleLocal || scheduleAt,
+           /*  scheduleAt: scheduleLocal || scheduleAt, */
             address, phone, notes
           }).catch(()=>{});
     
