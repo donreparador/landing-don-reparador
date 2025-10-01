@@ -5805,7 +5805,7 @@ body.mil-modal-open{ overflow: hidden; }
   justify-content: center;
   background: rgba(17,17,17,.55);
   backdrop-filter: blur(2px);
-  z-index: 10020;              /* alto */
+  z-index: 10000;              /* alto */
 }
 #request-modal .mil-modal-dialog {
   position: relative;
@@ -5818,7 +5818,7 @@ body.mil-modal-open{ overflow: hidden; }
   z-index: 10021;
 }
 #request-modal .mil-modal-close {
-  position: absolute; top: 8px; right: 10px; z-index: 10022;
+  position: absolute; top: 8px; right: 10px; z-index: 10000;
 }
 
 /* Si tu tema añade un overlay global cuando el body tiene .mil-modal-open,
