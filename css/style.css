@@ -5741,12 +5741,25 @@ pagination
           transform: scale(1);
 }
 .mil-modal-open { overflow: hidden; }
-#mil-requirements-popup {
+/* #mil-requirements-popup {
   position: fixed;
   inset: 0;
-  display: none;           /* se cambia a block desde JS */
+  display: none;           
   z-index: 9999;
   background: rgba(0,0,0,.45);
+} */
+.mil-requirements-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* ✅ scroll si es más alto que la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6); /* opcional: fondo oscuro */
 }
 #mil-requirements-popup .mil-popup-window{
   position: relative;
@@ -5773,15 +5786,12 @@ body.mil-modal-open {
   backdrop-filter: blur(1px);
   z-index: 10000;
 }
-
-/* .mil-popup-window{
-  max-width: 880px;
-  width: 100%;
-  max-height: 100vh;
-  overflow: auto;
-  border-radius: 16px;
-} */
 .mil-popup-window {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* .mil-popup-window {
   max-width: 880px;
   width: 100%;
   height: 100%;
@@ -5791,6 +5801,16 @@ body.mil-modal-open {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+} */
+.mil-popup-window {
+  max-height: 95vh; /* ✅ evita que desborde */
+  overflow-y: auto;
+  height: 100%;
+  width: 95vw;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
 
 body.mil-modal-open{ overflow: hidden; }
@@ -5828,4 +5848,8 @@ body.mil-modal-open::before {
 }
 
 
-  
+  /* Asegura que el contenedor del modal ocupe toda la pantalla */
+
+
+/* El contenido del modal debe tener tamaño máximo y permitir scroll interno si necesario */
+
